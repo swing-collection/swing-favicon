@@ -1,1 +1,1 @@
-# swing-icon
+# Swing | Icon
