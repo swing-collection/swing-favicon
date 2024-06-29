@@ -26,8 +26,6 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 # Import | Local Modules
-from services.projects.models.model_study import StudyModel
-from core.base.models import BaseModel
 
 
 # =============================================================================
