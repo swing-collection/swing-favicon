@@ -1,0 +1,3 @@
+include README.md
+recursive-include src/swing_icon/static *
+recursive-include src/swing_icon/templates *
