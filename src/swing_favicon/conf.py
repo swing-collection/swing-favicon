@@ -1,0 +1,13 @@
+# settings.py
+
+FAVICON_BASE_PATH = 'custom_path/to_favicons'
+
+FAVICON_CACHE_MAX_AGE = 60 * 60 * 24  # 1 day
+# FAVICON_CACHE_MAX_AGE = 86400 * 365  # 1 year
+FAVICON_CACHE_IMMUTABLE = True
+FAVICON_CACHE_PUBLIC = True
+
+
+FAVICON_SIZES = [
+    16, 32, 48, 64, 96, 128, 256
+]
