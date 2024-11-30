@@ -7,14 +7,10 @@
 
 """
 Provides Favicon Config Class
-============================
+=============================
+
 ...
 
-Todo:
------
-
-Links:
-------
 
 """
 
@@ -40,7 +36,8 @@ from django.utils.translation import gettext_lazy as _
 class FaviconConfig(AppConfig):
     """
     Favicon Config Class
-    ==================
+    ====================
+
     """
 
     # Full Python path to the application
