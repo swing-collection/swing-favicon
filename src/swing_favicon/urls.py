@@ -16,6 +16,9 @@ Provides Favicon URLs Module
 # Imports
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
 # Import | Standard Library
 from typing import List
 
@@ -35,10 +38,11 @@ from .views import FaviconFileView
 __all__: List[str] = ["app_name", "urlpatterns"]
 
 # App Name
+# pylint: disable=invalid-name
 app_name = "favicon"
 
 # URL Patterns
-urlpatterns = [
+urlpatterns: List[Union[URLPattern, URLResolver]] = [
     # ...,
 
     path(
@@ -65,6 +69,6 @@ urlpatterns = [
 
 ]
 
-# urlpatterns = [
+# urlpatterns: List[Union[URLPattern, URLResolver]] = [
 #     re_path(r'^favicon\.ico$', RedirectView.as_view(url=conf.FAVICON_PATH, permanent=True), name='favicon'),
 # ]

@@ -4,7 +4,7 @@ import logging
 from PIL import Image
 from ..conf import (
     FAVICON_SIZES,
-    ,
+    
 )
 from ..constants.constants_favicon import (
     FAVICON_TYPES,
@@ -186,7 +186,7 @@ Links:
 - https://github.com/thatmattlove/favicons/blob/master/favicons/_generate.py
 """
 
-# Standard Library
+# Import | Standard Library
 import json as _json
 import math
 import asyncio
@@ -272,7 +272,7 @@ class Favicons:
     ) -> None:
         """Exit Favicons context."""
         self._close_temp_source()
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
     async def __aenter__(self) -> "Favicons":
         """Enter Favicons context."""
@@ -288,7 +288,7 @@ class Favicons:
     ) -> None:
         """Exit Favicons context."""
         self._close_temp_source()
-        pass
+        pass  # pylint: disable=unnecessary-pass
 
     def _close_temp_source(self) -> None:
         """Close temporary file if it exists."""
@@ -296,7 +296,7 @@ class Favicons:
             try:
                 self._temp_source.unlink()
             except FileNotFoundError:
-                pass
+                pass  # pylint: disable=unnecessary-pass
 
     def _check_source_format(self) -> None:
         """Convert source image to PNG if it's in SVG format."""

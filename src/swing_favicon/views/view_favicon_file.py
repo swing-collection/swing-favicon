@@ -16,7 +16,7 @@ application. It utilizes caching mechanisms for efficient favicon delivery.
 
 
 # =============================================================================
-# Import
+# Imports
 # =============================================================================
 
 # Import | Standard Library

@@ -18,7 +18,7 @@ Replace this with more appropriate tests for your application.
 
 
 # =============================================================================
-# Import
+# Imports
 # =============================================================================
 
 # Import | Standard Library

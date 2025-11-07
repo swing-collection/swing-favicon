@@ -24,6 +24,9 @@ https://docs.djangoproject.com/en/stable/howto/deployment/wsgi/
 # Imports
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
 # Import | Standard Library
 import os
 

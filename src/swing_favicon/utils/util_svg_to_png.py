@@ -1,6 +1,6 @@
 """Common utility functions used throughout Favicons."""
 
-# Standard Library
+# Import | Standard Library
 from typing import Union, Mapping, Generator
 from pathlib import Path
 from tempfile import mkstemp

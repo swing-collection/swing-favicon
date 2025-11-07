@@ -21,6 +21,9 @@ Defines URL patterns for the demo project. This includes:
 # Imports
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
 # Import | Standard Library
 
 # Import | Libraries
@@ -34,7 +37,7 @@ from django.urls import path, include
 # URL Patterns
 # =============================================================================
 
-urlpatterns = [
+urlpatterns: List[Union[URLPattern, URLResolver]] = [
     path("admin/", admin.site.urls),  # Admin site URL
     path("hello/", include("swing_hello.urls")),  # Include the URLs from the swing_hello app
     path("", include("swing_hello.urls")),  # Include the URLs from the swing_hello app

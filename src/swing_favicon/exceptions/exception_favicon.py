@@ -1,6 +1,6 @@
 """Custom excpetions for favicons."""
 
-# Standard Library
+# Import | Standard Library
 import json as _json
 from typing import Any, Dict, Union, Iterable, Generator
 from pathlib import Path

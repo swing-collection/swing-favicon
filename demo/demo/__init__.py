@@ -17,6 +17,9 @@ project-level components for the demo Django project.
 # Imports
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
 # Import | Standard Library
 
 # Import | Libraries

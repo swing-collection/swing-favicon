@@ -25,6 +25,9 @@ Usage:
 # Imports
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
 # Import | Standard Library
 import os
 import sys

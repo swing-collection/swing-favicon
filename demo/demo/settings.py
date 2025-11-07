@@ -29,6 +29,9 @@ and `ALLOWED_HOSTS` appropriately for deployment.
 # Imports
 # =============================================================================
 
+# Import | Future
+from __future__ import annotations
+
 # Import | Standard Library
 from pathlib import Path
 
