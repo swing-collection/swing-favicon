@@ -1,0 +1,6 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": ["favicons", "favicon", "LANCZOS", "sgenerate", "agenerate"],
+    "ignorePaths": ["node_modules", ".venv", "*.lock", "poetry.lock"]
+}

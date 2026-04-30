@@ -1,3 +1,14 @@
+# =============================================================================
+# MANIFEST.in - Source-distribution include rules
+# =============================================================================
+#
+# Why this repo only? swing-favicon ships static asset files (favicons,
+# templates) that must be bundled into the sdist for the package to be usable.
+# Other swing-* repos are pure Python and don't need MANIFEST.in because
+# poetry includes their packages automatically.
+#
+# =============================================================================
+
 include README.md
-recursive-include src/swing_icon/static *
-recursive-include src/swing_icon/templates *
+recursive-include src/swing_favicon/static *
+recursive-include src/swing_favicon/templates *
