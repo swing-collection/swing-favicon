@@ -31,7 +31,7 @@ from django.test import SimpleTestCase
 # Variables
 # =============================================================================
 
-__all__ = ["FaviconFileTests", ]
+__all__: list[str] = ["FaviconFileTests", ]
 
 
 # =============================================================================

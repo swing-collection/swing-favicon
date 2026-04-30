@@ -35,14 +35,14 @@ from .views import FaviconFileView
 # =============================================================================
 
 # Export
-__all__: List[str] = ["app_name", "urlpatterns"]
+__all__: list[str] = ["app_name", "urlpatterns"]
 
 # App Name
 # pylint: disable=invalid-name
 app_name = "favicon"
 
 # URL Patterns
-urlpatterns: List[Union[URLPattern, URLResolver]] = [
+urlpatterns: list[Union[URLPattern, URLResolver]] = [
     # ...,
 
     path(
@@ -69,6 +69,6 @@ urlpatterns: List[Union[URLPattern, URLResolver]] = [
 
 ]
 
-# urlpatterns: List[Union[URLPattern, URLResolver]] = [
+# urlpatterns: list[Union[URLPattern, URLResolver]] = [
 #     re_path(r'^favicon\.ico$', RedirectView.as_view(url=conf.FAVICON_PATH, permanent=True), name='favicon'),
 # ]

@@ -50,6 +50,6 @@ class FaviconModel(BaseModel):
 # Module Exports
 # =============================================================================
 
-__all__ = [
+__all__: list[str] = [
     "FaviconModel",
 ]

@@ -37,7 +37,7 @@ from django.contrib.staticfiles import finders
 # Variables
 # =============================================================================
 
-__all__ = ["FaviconFilePathTests", ]
+__all__: list[str] = ["FaviconFilePathTests", ]
 
 
 # =============================================================================

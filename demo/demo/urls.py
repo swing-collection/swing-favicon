@@ -37,7 +37,7 @@ from django.urls import path, include
 # URL Patterns
 # =============================================================================
 
-urlpatterns: List[Union[URLPattern, URLResolver]] = [
+urlpatterns: list[Union[URLPattern, URLResolver]] = [
     path("admin/", admin.site.urls),  # Admin site URL
     path("hello/", include("swing_hello.urls")),  # Include the URLs from the swing_hello app
     path("", include("swing_hello.urls")),  # Include the URLs from the swing_hello app

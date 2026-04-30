@@ -45,4 +45,4 @@ https://docs.djangoproject.com/en/stable/topics/migrations/
 # reused as modules in other parts of the application. However, for
 # completeness:
 
-# __all__ = []
+# __all__: list[str] = []

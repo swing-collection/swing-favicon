@@ -266,7 +266,7 @@ class Favicons:
 
     def __exit__(
         self,
-        exc_type: Optional[Type[BaseException]] = None,
+        exc_type: Optional[type[BaseException]] = None,
         exc_value: Optional[BaseException] = None,
         traceback: Optional[TracebackType] = None,
     ) -> None:
@@ -282,7 +282,7 @@ class Favicons:
 
     async def __aexit__(
         self,
-        exc_type: Optional[Type[BaseException]] = None,
+        exc_type: Optional[type[BaseException]] = None,
         exc_value: Optional[BaseException] = None,
         traceback: Optional[TracebackType] = None,
     ) -> None:
@@ -317,7 +317,7 @@ class Favicons:
     def _generate_single(self, format_properties: FaviconProperties) -> None:
         with PILImage.open(self.source) as src:
             output_file = self.output_directory / str(format_properties)
-            bg: Tuple[int, ...] = self.background_color.colors
+            bg: tuple[int, ...] = self.background_color.colors
 
             # If transparency is enabled, add alpha channel to color.
             if self.transparent:

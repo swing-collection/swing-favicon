@@ -32,7 +32,7 @@ from django.contrib.staticfiles import finders
 # Variables
 # =============================================================================
 
-__all__ = ["FaviconPNGTests", ]
+__all__: list[str] = ["FaviconPNGTests", ]
 
 
 # =============================================================================
