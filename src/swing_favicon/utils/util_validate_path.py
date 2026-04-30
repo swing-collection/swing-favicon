@@ -1,27 +1,28 @@
-"""Common utility functions used throughout Favicons."""
+"""Utility functions for path validation."""
 
-# Import | Standard Library
-from typing import Union, Mapping, Generator
 from pathlib import Path
-from tempfile import mkstemp
+from typing import Union
+
+from ..exceptions.exception_favicon import FaviconsError, FaviconNotFoundError
 
 
-import svglib
+def validate_path(
+    path: Union[Path, str], must_exist: bool = True, create: bool = False
+) -> Path:
+    """Validate a path and ensure it's a Path object.
 
-# Project
-from favicons._types import Color, FaviconProperties
-from favicons._constants import ICON_TYPES
-from favicons._exceptions import FaviconsError, FaviconNotFoundError
+    Args:
+        path: The path to validate (string or Path object).
+        must_exist: If True, raise error if path doesn't exist.
+        create: If True, create the directory if it doesn't exist.
 
+    Returns:
+        The validated Path object.
 
-
-
-
-
-
-def validate_path(path: Union[Path, str], must_exist: bool = True, create: bool = False) -> Path:
-    """Validate a path and ensure it's a Path object."""
-
+    Raises:
+        FaviconsError: If the path is invalid.
+        FaviconNotFoundError: If must_exist is True and path doesn't exist.
+    """
     if isinstance(path, str):
         try:
             path = Path(path)

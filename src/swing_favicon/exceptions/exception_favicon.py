@@ -1,12 +1,14 @@
-"""Custom excpetions for favicons."""
+"""Custom exceptions for favicons."""
 
 # Import | Standard Library
 import json as _json
-from typing import Any, Dict, Union, Iterable, Generator
+from collections.abc import Generator, Iterable
+from typing import Any, Dict, Union
 from pathlib import Path
 
-# Project
-from favicons._constants import SUPPORTED_FORMATS
+
+# Supported image formats for favicon generation
+SUPPORTED_FORMATS = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")
 
 
 class FaviconsError(Exception):
@@ -82,7 +84,7 @@ class FaviconColorError(FaviconsError):
 
     def __init__(
         self,
-        color: Union[str, Iterable, Generator],
+        color: str | Iterable | Generator,
         message: str = "Color '{color}' is not a valid color.",
     ) -> None:
         """Set message."""

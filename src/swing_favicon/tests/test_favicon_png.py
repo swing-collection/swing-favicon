@@ -17,13 +17,10 @@ Provides Favicon PNG File Tests Class
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, Dict, List
 from http import HTTPStatus
 
 # Import | Libraries
 from django.test import SimpleTestCase
-from django.test import TestCase
-from django.contrib.staticfiles import finders
 
 # Import | Local Modules
 
@@ -47,8 +44,7 @@ class FaviconPNGTests(SimpleTestCase):
     """
 
     def test_get(self):
-        """
-        """
+        """Test fetching favicon.ico returns OK status."""
 
         response = self.client.get("/favicon.ico")
 

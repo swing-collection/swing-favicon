@@ -18,7 +18,6 @@ Provides Favicon File Tests Class
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, Dict, List
 from http import HTTPStatus
 
 # Import | Libraries
@@ -39,8 +38,7 @@ __all__: list[str] = ["FaviconFileTests", ]
 # =============================================================================
 
 class FaviconFileTests(SimpleTestCase):
-    """
-    """
+    """Test favicon file serving."""
 
     def test_get(self):
         names = [

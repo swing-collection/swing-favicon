@@ -20,7 +20,7 @@ Provides Favicon Config Class
 # =============================================================================
 
 # Import | Standard Library
-from typing import Dict, List, Union
+
 
 # Import | Libraries
 from django.apps import AppConfig
@@ -41,7 +41,7 @@ class FaviconConfig(AppConfig):
     """
 
     # Full Python path to the application
-    name = "website.favicon"
+    name = "swing_favicon"
 
     # Short name for the application
     label = "favicon"
@@ -56,9 +56,6 @@ class FaviconConfig(AppConfig):
 
     # The implicit primary key type to add to models within this app.
     default_auto_field = "django.db.models.BigAutoField"
-
-
-
 
 
     # def ready(self):

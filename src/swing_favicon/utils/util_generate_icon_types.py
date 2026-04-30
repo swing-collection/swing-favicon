@@ -1,21 +1,12 @@
-"""Common utility functions used throughout Favicons."""
+"""Common utility functions for favicon icon types."""
 
-# Import | Standard Library
-from typing import Mapping, Generator
+from typing import Generator
 
-
-
-
-# Project
-from favicons._types import FaviconProperties
-from favicons._constants import ICON_TYPES
+from ..constants.constants_favicon import FAVICON_TYPES
 
 
-
-
-def generate_icon_types() -> Generator[FaviconProperties, None, None]:
+def generate_icon_types() -> Generator[dict, None, None]:
     """Get icon type objects."""
-    for icon_type in ICON_TYPES:
-        if isinstance(icon_type, Mapping):
-            yield FaviconProperties(**icon_type)
-
+    for icon_type in FAVICON_TYPES:
+        if isinstance(icon_type, dict):
+            yield icon_type

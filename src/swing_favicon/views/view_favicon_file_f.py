@@ -21,7 +21,7 @@ and ensures only GET requests are handled.
 # =============================================================================
 
 # Import | Standard Library
-from typing import Any, Dict, List
+from typing import Any
 from pathlib import Path
 
 # Import | Libraries
