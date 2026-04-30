@@ -3,7 +3,7 @@
 from pathlib import Path
 from typing import Union
 
-from ..exceptions.exception_favicon import FaviconsError, FaviconNotFoundError
+from ..exceptions import FaviconsError, FaviconNotFoundError
 
 
 def validate_path(

@@ -51,11 +51,33 @@ FAVICON_THEME_COLOR: str = getattr(settings, "FAVICON_THEME_COLOR", "#ffffff")
 # Background color for MS tiles
 FAVICON_MS_TILE_COLOR: str = getattr(settings, "FAVICON_MS_TILE_COLOR", "#ffffff")
 
+# Safari pinned tab mask icon color (monochrome SVG)
+FAVICON_SAFARI_MASK_COLOR: str = getattr(
+    settings, "FAVICON_SAFARI_MASK_COLOR", "#000000"
+)
+
 # App name for web manifest
 FAVICON_APP_NAME: str = getattr(settings, "FAVICON_APP_NAME", "")
 
 # Short app name for web manifest
 FAVICON_APP_SHORT_NAME: str = getattr(settings, "FAVICON_APP_SHORT_NAME", "")
+
+# App description for web manifest
+FAVICON_APP_DESCRIPTION: str = getattr(settings, "FAVICON_APP_DESCRIPTION", "")
+
+# App start URL for PWA
+FAVICON_START_URL: str = getattr(settings, "FAVICON_START_URL", "/")
+
+# PWA display mode: fullscreen, standalone, minimal-ui, browser
+FAVICON_DISPLAY_MODE: str = getattr(settings, "FAVICON_DISPLAY_MODE", "standalone")
+
+# PWA orientation: any, natural, landscape, portrait
+FAVICON_ORIENTATION: str = getattr(settings, "FAVICON_ORIENTATION", "any")
+
+# PWA background color (splash screen)
+FAVICON_BACKGROUND_COLOR: str = getattr(
+    settings, "FAVICON_BACKGROUND_COLOR", "#ffffff"
+)
 
 
 # =============================================================================

@@ -10,9 +10,12 @@ from .helpers import (
     get_base_path,
     get_manifest_links,
     get_microsoft_links,
+    get_safari_links,
     get_standard_links,
     get_theme_color,
 )
+
+from ...conf import FAVICON_SAFARI_MASK_COLOR
 
 register = template.Library()
 
@@ -29,6 +32,7 @@ def favicon_links(variant: str = "minimal") -> str:
             - "apple": Apple touch icons
             - "microsoft": Microsoft tiles
             - "android": Android/Chrome icons
+            - "safari": Safari pinned tab
             - "full": All favicon variants
 
     Usage:
@@ -38,6 +42,7 @@ def favicon_links(variant: str = "minimal") -> str:
     """
     base_path = get_base_path()
     theme_color = get_theme_color()
+    safari_mask_color = FAVICON_SAFARI_MASK_COLOR
 
     links = []
 
@@ -55,6 +60,9 @@ def favicon_links(variant: str = "minimal") -> str:
 
     if variant in ("android", "full"):
         links.extend(get_android_links(base_path))
+
+    if variant in ("safari", "full"):
+        links.extend(get_safari_links(base_path, safari_mask_color))
 
     if variant in ("minimal", "full"):
         links.extend(get_manifest_links(base_path))

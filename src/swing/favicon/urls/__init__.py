@@ -30,7 +30,7 @@ from django.urls import path, re_path
 from django.urls.resolvers import URLPattern, URLResolver
 
 # Import | Local Modules
-from .views import FaviconFileView
+from ..views import BrowserConfigView, FaviconFileView, WebManifestView
 
 if TYPE_CHECKING:
     pass
@@ -64,17 +64,39 @@ urlpatterns: list[URLPattern | URLResolver] = [
     path("favicon-128x128.png", FaviconFileView.as_view(), name="favicon-128"),
     path("favicon-192x192.png", FaviconFileView.as_view(), name="favicon-192"),
     path("favicon-256x256.png", FaviconFileView.as_view(), name="favicon-256"),
+    path("favicon-512x512.png", FaviconFileView.as_view(), name="favicon-512"),
 
-    # Android Chrome icons
+    # SVG favicon (modern browsers)
+    path("favicon.svg", FaviconFileView.as_view(), name="favicon-svg"),
+
+    # Android Chrome icons (PWA)
+    path("android-chrome-36x36.png", FaviconFileView.as_view(), name="android-chrome-36"),
+    path("android-chrome-48x48.png", FaviconFileView.as_view(), name="android-chrome-48"),
+    path("android-chrome-72x72.png", FaviconFileView.as_view(), name="android-chrome-72"),
+    path("android-chrome-96x96.png", FaviconFileView.as_view(), name="android-chrome-96"),
+    path("android-chrome-144x144.png", FaviconFileView.as_view(), name="android-chrome-144"),
     path(
         "android-chrome-192x192.png",
         FaviconFileView.as_view(),
         name="android-chrome-192",
     ),
+    path("android-chrome-384x384.png", FaviconFileView.as_view(), name="android-chrome-384"),
     path(
         "android-chrome-512x512.png",
         FaviconFileView.as_view(),
         name="android-chrome-512",
+    ),
+
+    # Maskable icons (PWA safe zone)
+    path(
+        "android-chrome-maskable-192x192.png",
+        FaviconFileView.as_view(),
+        name="android-chrome-maskable-192",
+    ),
+    path(
+        "android-chrome-maskable-512x512.png",
+        FaviconFileView.as_view(),
+        name="android-chrome-maskable-512",
     ),
 
     # Apple Touch Icons
@@ -137,19 +159,22 @@ urlpatterns: list[URLPattern | URLResolver] = [
 
     # Microsoft Tiles
     path("mstile-70x70.png", FaviconFileView.as_view(), name="mstile-70"),
+    path("mstile-144x144.png", FaviconFileView.as_view(), name="mstile-144"),
     path("mstile-150x150.png", FaviconFileView.as_view(), name="mstile-150"),
     path("mstile-270x270.png", FaviconFileView.as_view(), name="mstile-270"),
     path("mstile-310x150.png", FaviconFileView.as_view(), name="mstile-310x150"),
     path("mstile-310x310.png", FaviconFileView.as_view(), name="mstile-310"),
-    path("browserconfig.xml", FaviconFileView.as_view(), name="browserconfig"),
 
-    # Safari
+    # browserconfig.xml (Windows) - Dynamic generation
+    path("browserconfig.xml", BrowserConfigView.as_view(), name="browserconfig"),
+
+    # Safari Pinned Tab (mask-icon)
     path("safari-pinned-tab.svg", FaviconFileView.as_view(), name="safari-pinned-tab"),
     path("mask-icon.svg", FaviconFileView.as_view(), name="mask-icon"),
 
-    # Web Manifest (PWA)
-    path("site.webmanifest", FaviconFileView.as_view(), name="webmanifest"),
-    path("manifest.json", FaviconFileView.as_view(), name="manifest"),
+    # Web Manifest (PWA) - Dynamic generation
+    path("site.webmanifest", WebManifestView.as_view(), name="webmanifest"),
+    path("manifest.json", WebManifestView.as_view(), name="manifest"),
 
     # Dynamic route for any favicon file (catch-all, should be last)
     re_path(

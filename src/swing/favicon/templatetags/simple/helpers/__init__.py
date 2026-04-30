@@ -7,6 +7,7 @@ from .helper_base_path import get_base_path
 from .helper_manifest_links import get_manifest_links
 from .helper_microsoft_links import get_microsoft_links
 from .helper_ms_tile_color import get_ms_tile_color
+from .helper_safari_links import get_safari_links
 from .helper_standard_links import get_standard_links
 from .helper_theme_color import get_theme_color
 
@@ -17,6 +18,7 @@ __all__ = [
     "get_manifest_links",
     "get_microsoft_links",
     "get_ms_tile_color",
+    "get_safari_links",
     "get_standard_links",
     "get_theme_color",
 ]

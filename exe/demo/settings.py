@@ -78,7 +78,7 @@ ROOT_URLCONF = "demo.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "demo" / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -146,3 +146,14 @@ STATICFILES_DIRS: list[Path] = [BASE_DIR / "static"]
 # =============================================================================
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# =============================================================================
+# Swing Favicon Settings
+# =============================================================================
+
+FAVICON_BASE_PATH = "favicon"
+FAVICON_THEME_COLOR = "#3498db"
+FAVICON_MS_TILE_COLOR = "#3498db"
+FAVICON_CACHE_MAX_AGE = 60 * 60 * 24  # 1 day
+FAVICON_AUTO_GENERATE = False
