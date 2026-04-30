@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+
 """
 Generate Favicons Management Command
 =====================================
@@ -19,8 +21,8 @@ from typing import Any
 from django.core.management.base import BaseCommand, CommandError, CommandParser
 from django.conf import settings
 
-from swing_favicon.utils.util_generate_favicons import FaviconGenerator
-from swing_favicon.conf import FAVICON_SIZES, FAVICON_APPLE_SIZES
+from ...utils.util_generate_favicons import FaviconGenerator
+from ...conf import FAVICON_SIZES, FAVICON_APPLE_SIZES
 
 
 class Command(BaseCommand):

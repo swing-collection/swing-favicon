@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+
 """
 Favicon Admin Configuration
 ===========================
@@ -10,8 +12,8 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
-from .models import FaviconModel
-from .conf import FAVICON_AUTO_GENERATE
+from ..models import FaviconModel
+from ..conf import FAVICON_AUTO_GENERATE
 
 
 @admin.register(FaviconModel)
@@ -77,7 +79,7 @@ class FaviconAdmin(admin.ModelAdmin):
 
         if FAVICON_AUTO_GENERATE and obj.image:
             # Import here to avoid circular imports
-            from .utils.util_generate_favicons import FaviconGenerator
+            from ..utils.util_generate_favicons import FaviconGenerator
 
             try:
                 generator = FaviconGenerator(

@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+
 """Django settings for tests / type-checking."""
 
 from pathlib import Path
@@ -17,7 +19,7 @@ INSTALLED_APPS: list[str] = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "swing_favicon.apps.FaviconConfig",
+    "swing.favicon.apps.FaviconConfig",
 ]
 
 MIDDLEWARE: list[str] = []

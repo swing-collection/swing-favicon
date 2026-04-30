@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+
 """
 Validate Favicons Management Command
 =====================================
@@ -18,7 +20,7 @@ from typing import Any
 from django.core.management.base import BaseCommand, CommandParser
 from django.contrib.staticfiles import finders
 
-from swing_favicon.conf import FAVICON_BASE_PATH
+from ...conf import FAVICON_BASE_PATH
 
 
 # Required favicon files for different compliance levels

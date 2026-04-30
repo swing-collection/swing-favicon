@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+
+
 """
 Favicon Configuration Settings
 ==============================
 
-Default settings for the swing_favicon app. These can be overridden in your
+Default settings for the swing.favicon app. These can be overridden in your
 Django project's settings.py by prefixing with FAVICON_.
 
 Example in settings.py:

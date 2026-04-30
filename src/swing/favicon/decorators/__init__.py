@@ -14,3 +14,11 @@ Provides Favicon Decorators Module
 
 # Imports
 # =============================================================================
+
+from .decorator_cache import favicon_cache
+from .decorator_headers import add_favicon_headers
+
+__all__ = [
+    "favicon_cache",
+    "add_favicon_headers",
+]

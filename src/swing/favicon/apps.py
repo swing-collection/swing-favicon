@@ -41,7 +41,7 @@ class FaviconConfig(AppConfig):
     """
 
     # Full Python path to the application
-    name = "swing_favicon"
+    name = "swing.favicon"
 
     # Short name for the application
     label = "favicon"

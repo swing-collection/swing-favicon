@@ -29,8 +29,8 @@
 #     coverage report
 #
 #   With pytest-cov (recommended):
-#     pytest --cov=swing_favicon tst/
-#     pytest --cov=swing_favicon --cov-report=html tst/
+#     pytest --cov=swing.favicon tst/
+#     pytest --cov=swing.favicon --cov-report=html tst/
 #
 # =============================================================================
 
@@ -45,9 +45,9 @@
 # source
 # ---------------------------------------------------------------------------
 # Directories to measure coverage for.
-# Measures coverage for the swing_favicon package.
+# Measures coverage for the swing.favicon package.
 #
-source = src/swing_favicon
+source = src/swing/favicon
 
 # ---------------------------------------------------------------------------
 # branch
@@ -100,8 +100,8 @@ omit =
 [paths]
 
 source =
-    src/swing_favicon
-    */site-packages/swing_favicon
+    src/swing/favicon
+    */site-packages/swing/favicon
 
 
 # =============================================================================

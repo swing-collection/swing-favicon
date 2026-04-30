@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+
 """Root conftest.py - sets up sys.path before pytest-django.
 
 Portable across swing-* repos. Adds project root and `src/` to sys.path so
