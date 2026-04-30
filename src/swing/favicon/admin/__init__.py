@@ -12,8 +12,9 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
-from ..models import FaviconModel
+# Import | Local
 from ..conf import FAVICON_AUTO_GENERATE
+from ..models import FaviconModel
 
 
 @admin.register(FaviconModel)
@@ -21,7 +22,12 @@ class FaviconAdmin(admin.ModelAdmin):
     """Admin interface for FaviconModel."""
 
     list_display = ["__str__", "image_preview", "image_dimensions", "updated_at"]
-    readonly_fields = ["image_preview_large", "image_dimensions", "created_at", "updated_at"]
+    readonly_fields = [
+        "image_preview_large",
+        "image_dimensions",
+        "created_at",
+        "updated_at",
+    ]
     fieldsets = [
         (None, {"fields": ["image"]}),
         (
@@ -79,6 +85,7 @@ class FaviconAdmin(admin.ModelAdmin):
 
         if FAVICON_AUTO_GENERATE and obj.image:
             # Import here to avoid circular imports
+            # Import | Local
             from ..utils.util_generate_favicons import FaviconGenerator
 
             try:

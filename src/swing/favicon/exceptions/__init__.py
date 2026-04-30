@@ -15,6 +15,7 @@ Provides Favicon Exceptions Module
 # Imports
 # =============================================================================
 
+# Import | Local
 from .exception_base import FaviconsError
 from .exception_color import FaviconColorError
 from .exception_not_found import FaviconNotFoundError

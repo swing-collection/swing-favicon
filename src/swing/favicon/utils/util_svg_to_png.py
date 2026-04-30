@@ -1,5 +1,6 @@
 """Utility functions for SVG to PNG conversion."""
 
+# Import | Standard Library
 from pathlib import Path
 from tempfile import mkstemp
 from typing import Tuple
@@ -19,9 +20,10 @@ def svg_to_png(svg_path: Path, background_color: Tuple[int, ...]) -> Path:
         ImportError: If svglib or reportlab is not installed.
     """
     try:
-        from svglib.svglib import svg2rlg
+        # Import | Libraries
         from reportlab.graphics import renderPM
         from reportlab.lib.colors import transparent
+        from svglib.svglib import svg2rlg
     except ImportError as err:
         raise ImportError(
             "svglib and reportlab are required for SVG conversion. "
@@ -34,7 +36,9 @@ def svg_to_png(svg_path: Path, background_color: Tuple[int, ...]) -> Path:
 
     drawing = svg2rlg(str(svg_path))
     # Convert RGB tuple to hex color
-    hex_color = "#{:02x}{:02x}{:02x}".format(*background_color[:3])
+    hex_color = (
+        f"#{background_color[0]:02x}{background_color[1]:02x}{background_color[2]:02x}"
+    )
     renderPM.drawToFile(
         drawing,
         str(png),

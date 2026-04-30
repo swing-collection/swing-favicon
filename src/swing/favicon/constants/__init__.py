@@ -15,6 +15,7 @@ Provides Favicon Constants Module
 # Imports
 # =============================================================================
 
+# Import | Local
 from .constants_favicon import (
     ANDROID_CHROME_SIZES,
     BROWSERCONFIG_TILES,

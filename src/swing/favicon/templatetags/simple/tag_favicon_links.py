@@ -4,6 +4,8 @@
 from django import template
 from django.utils.safestring import mark_safe
 
+# Import | Local
+from ...conf import FAVICON_SAFARI_MASK_COLOR
 from .helpers import (
     get_android_links,
     get_apple_links,
@@ -14,8 +16,6 @@ from .helpers import (
     get_standard_links,
     get_theme_color,
 )
-
-from ...conf import FAVICON_SAFARI_MASK_COLOR
 
 register = template.Library()
 

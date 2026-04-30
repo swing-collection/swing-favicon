@@ -6,6 +6,7 @@ Favicon Utilities Module
 Utilities for generating and managing favicon files.
 """
 
+# Import | Local
 from .util_generate_browserconfig import (
     generate_browserconfig,
     generate_browserconfig_dict,

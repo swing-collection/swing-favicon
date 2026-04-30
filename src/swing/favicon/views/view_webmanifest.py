@@ -4,14 +4,14 @@ View for serving dynamically generated site.webmanifest.
 """
 
 from django.http import HttpRequest, HttpResponse
-from django.views import View
-from django.views.decorators.http import require_GET
-from django.views.decorators.cache import cache_control
 from django.utils.decorators import method_decorator
+from django.views import View
+from django.views.decorators.cache import cache_control
+from django.views.decorators.http import require_GET
 
+# Import | Local
 from ..conf import FAVICON_CACHE_MAX_AGE
 from ..utils.util_generate_manifest import generate_manifest
-
 
 __all__ = ["WebManifestView"]
 

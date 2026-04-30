@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Base exception class for favicons."""
 
+# Import | Standard Library
 import json as _json
 from typing import Any, Dict
 

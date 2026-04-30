@@ -19,7 +19,6 @@ Provides Favicon SVG File Tests Class
 # Import | Standard Library
 from http import HTTPStatus
 
-# Import | Libraries
 from django.test import SimpleTestCase
 
 # Import | Local Modules
@@ -29,12 +28,15 @@ from django.test import SimpleTestCase
 # Variables
 # =============================================================================
 
-__all__: list[str] = ["FaviconSVGTests", ]
+__all__: list[str] = [
+    "FaviconSVGTests",
+]
 
 
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class FaviconSVGTests(SimpleTestCase):
     """
@@ -47,18 +49,7 @@ class FaviconSVGTests(SimpleTestCase):
         """Test fetching favicon.ico returns OK status."""
         response = self.client.get("/favicon.ico")
 
-        self.assertEqual(
-            response.status_code,
-            HTTPStatus.OK
-        )
-        self.assertEqual(
-            response["Cache-Control"],
-            "max-age=86400, immutable, public"
-        )
-        self.assertEqual(
-            response["Content-Type"],
-            "image/svg+xml"
-        )
-        self.assertTrue(
-            response.content.startswith(b"<svg")
-        )
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(response["Cache-Control"], "max-age=86400, immutable, public")
+        self.assertEqual(response["Content-Type"], "image/svg+xml")
+        self.assertTrue(response.content.startswith(b"<svg"))

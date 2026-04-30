@@ -20,41 +20,37 @@ and ensures only GET requests are handled.
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-from typing import Any
-from pathlib import Path
-
-# Import | Libraries
 from django.conf import settings
-from django.http import FileResponse, HttpRequest, HttpResponse, Http404
-from django.views.decorators.http import require_GET
+from django.http import FileResponse, Http404, HttpRequest, HttpResponse
 from django.views.decorators.cache import cache_control
-from django.views.decorators.cache import cache_page
+from django.views.decorators.http import require_GET
 
-# Import | Local Modules
+# Import | Local
 from ..conf import (
-    FAVICON_CACHE_MAX_AGE,
     FAVICON_CACHE_IMMUTABLE,
-    FAVICON_CACHE_PUBLIC
+    FAVICON_CACHE_MAX_AGE,
+    FAVICON_CACHE_PUBLIC,
 )
-
 
 # =============================================================================
 # Variables
 # =============================================================================
 
-__all__: list[str] = ["favicon_file_view", ]
+__all__: list[str] = [
+    "favicon_file_view",
+]
 
 
 # =============================================================================
 # Classes
 # =============================================================================
 
+
 @require_GET
 @cache_control(
-    max_age = FAVICON_CACHE_MAX_AGE,
-    immutable = FAVICON_CACHE_IMMUTABLE,
-    public = FAVICON_CACHE_PUBLIC
+    max_age=FAVICON_CACHE_MAX_AGE,
+    immutable=FAVICON_CACHE_IMMUTABLE,
+    public=FAVICON_CACHE_PUBLIC,
 )
 def favicon_file_view(request: HttpRequest) -> HttpResponse:
     """
@@ -87,13 +83,14 @@ def favicon_file_view(request: HttpRequest) -> HttpResponse:
     file_path = settings.BASE_DIR / "static" / name
 
     # Ensure the file path is within the expected directory
-    if not file_path.is_file() or not file_path.resolve().parent == (
-        settings.BASE_DIR / "static"
-    ).resolve():
+    if (
+        not file_path.is_file()
+        or not file_path.resolve().parent == (settings.BASE_DIR / "static").resolve()
+    ):
         raise Http404(f"File '{name}' not found.")
 
     try:
         with file_path.open("rb") as file:
             return FileResponse(file)
-    except IOError:
-        raise Http404(f"Unable to read file '{name}'.")
+    except IOError as exc:
+        raise Http404(f"Unable to read file '{name}'.") from exc

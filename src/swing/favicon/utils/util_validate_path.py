@@ -1,9 +1,11 @@
 """Utility functions for path validation."""
 
+# Import | Standard Library
 from pathlib import Path
 from typing import Union
 
-from ..exceptions import FaviconsError, FaviconNotFoundError
+# Import | Local
+from ..exceptions import FaviconNotFoundError, FaviconsError
 
 
 def validate_path(

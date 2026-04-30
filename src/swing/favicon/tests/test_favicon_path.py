@@ -21,13 +21,13 @@ Replace this with more appropriate tests for your application.
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-# from http import HTTPStatus
+from django.contrib.staticfiles import finders
 
-# Import | Libraries
 # from django.test import SimpleTestCase
 from django.test import TestCase
-from django.contrib.staticfiles import finders
+
+# from http import HTTPStatus
+
 
 # Import | Local Modules
 
@@ -36,12 +36,15 @@ from django.contrib.staticfiles import finders
 # Variables
 # =============================================================================
 
-__all__: list[str] = ["FaviconFilePathTests", ]
+__all__: list[str] = [
+    "FaviconFilePathTests",
+]
 
 
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class FaviconFilePathTests(TestCase):
     """
@@ -56,5 +59,5 @@ class FaviconFilePathTests(TestCase):
         FAVICON_PATH setting
         """
 
-        absolute_path = finders.find('favicon.ico')
+        absolute_path = finders.find("favicon.ico")
         assert absolute_path is not None

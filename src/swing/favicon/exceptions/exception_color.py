@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """Favicon color exception."""
 
+# Import | Standard Library
 from collections.abc import Generator, Iterable
 
+# Import | Local
 from .exception_base import FaviconsError
 
 

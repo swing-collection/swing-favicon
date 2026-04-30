@@ -48,21 +48,11 @@ ANDROID_CHROME_SIZES = (36, 48, 72, 96, 144, 192, 384, 512)
 MASKABLE_ICON_SIZES = (192, 512)
 
 FAVICON_TYPES = (
-
     # favicon.ico (multi-resolution handled separately)
     # -------------------------------------------------------------------------
-
-    {
-        "format": "ico",
-        "rel": None,
-        "dimensions": (64, 64),
-        "prefix": "favicon"
-    },
-
-
+    {"format": "ico", "rel": None, "dimensions": (64, 64), "prefix": "favicon"},
     # favicon.png (standard sizes)
     # -------------------------------------------------------------------------
-
     {
         "format": "png",
         "rel": "icon",
@@ -123,11 +113,8 @@ FAVICON_TYPES = (
         "dimensions": (512, 512),
         "prefix": "favicon",
     },
-
-
     # Apple Touch Icons (iOS/macOS)
     # -------------------------------------------------------------------------
-
     {
         "format": "png",
         "rel": "apple-touch-icon",
@@ -194,11 +181,8 @@ FAVICON_TYPES = (
         "dimensions": (1024, 1024),
         "prefix": "apple-touch-icon",
     },
-
-
     # Android Chrome Icons (PWA)
     # -------------------------------------------------------------------------
-
     {
         "format": "png",
         "rel": "icon",
@@ -247,11 +231,8 @@ FAVICON_TYPES = (
         "dimensions": (512, 512),
         "prefix": "android-chrome",
     },
-
-
     # Maskable Icons (PWA safe zone)
     # -------------------------------------------------------------------------
-
     {
         "format": "png",
         "rel": "icon",
@@ -266,11 +247,8 @@ FAVICON_TYPES = (
         "prefix": "android-chrome-maskable",
         "purpose": "maskable",
     },
-
-
     # MS Tile (Windows)
     # -------------------------------------------------------------------------
-
     {
         "format": "png",
         "rel": None,
@@ -307,18 +285,14 @@ FAVICON_TYPES = (
         "dimensions": (310, 150),
         "prefix": "mstile",
     },
-
-
     # Shortcut Icon
     # -------------------------------------------------------------------------
-
     {
         "format": "png",
         "rel": "shortcut icon",
         "dimensions": (196, 196),
         "prefix": "favicon",
     },
-
 )
 
 

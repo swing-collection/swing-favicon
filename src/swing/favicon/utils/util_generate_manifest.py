@@ -10,13 +10,15 @@ References:
 - https://web.dev/add-manifest/
 """
 
+# Import | Standard Library
 import json
 from typing import Any, Optional
 
+# Import | Local
 from ..conf import (
+    FAVICON_APP_DESCRIPTION,
     FAVICON_APP_NAME,
     FAVICON_APP_SHORT_NAME,
-    FAVICON_APP_DESCRIPTION,
     FAVICON_BACKGROUND_COLOR,
     FAVICON_BASE_PATH,
     FAVICON_DISPLAY_MODE,

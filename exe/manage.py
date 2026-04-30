@@ -26,9 +26,8 @@ Usage:
 
 # Import | Standard Library
 import os
-import sys
 from pathlib import Path
-
+import sys
 
 # =============================================================================
 # Setup: Extend Python Path

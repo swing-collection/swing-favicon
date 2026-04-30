@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Favicon headers decorator."""
 
+# Import | Standard Library
 from functools import wraps
-from typing import Callable, Any
+from typing import Any, Callable
 
 from django.http import HttpRequest, HttpResponse
 

@@ -14,14 +14,16 @@ Usage:
 
 """
 
+# Import | Standard Library
 from pathlib import Path
+import sys
 from typing import Any
 
-from django.core.management.base import BaseCommand, CommandParser
 from django.contrib.staticfiles import finders
+from django.core.management.base import BaseCommand, CommandParser
 
+# Import | Local
 from ...conf import FAVICON_BASE_PATH
-
 
 # Required favicon files for different compliance levels
 REQUIRED_MINIMAL = [
@@ -138,7 +140,7 @@ class Command(BaseCommand):
             )
 
             if options["strict"]:
-                exit(1)
+                sys.exit(1)
         else:
             self.stdout.write("")
             self.stdout.write(

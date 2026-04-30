@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Demo views for swing-favicon."""
 
-from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
 
 
 def home(request: HttpRequest) -> HttpResponse:

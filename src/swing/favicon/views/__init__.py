@@ -16,6 +16,7 @@ Provides Favicon Views Module
 # Imports
 # =============================================================================
 
+# Import | Local
 # Import | Local Modules
 from .view_browserconfig import BrowserConfigView
 from .view_favicon_file import FaviconFileView

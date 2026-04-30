@@ -15,14 +15,20 @@ Usage:
 
 """
 
+# Import | Standard Library
 from pathlib import Path
 from typing import Any
 
-from django.core.management.base import BaseCommand, CommandError, CommandParser
 from django.conf import settings
+from django.core.management.base import (
+    BaseCommand,
+    CommandError,
+    CommandParser,
+)
 
+# Import | Local
+from ...conf import FAVICON_APPLE_SIZES, FAVICON_SIZES
 from ...utils.util_generate_favicons import FaviconGenerator
-from ...conf import FAVICON_SIZES, FAVICON_APPLE_SIZES
 
 
 class Command(BaseCommand):
@@ -69,49 +75,71 @@ class Command(BaseCommand):
             help="Show what would be generated without creating files",
         )
 
-    def handle(self, *args: Any, **options: Any) -> None:
-        """Execute the command."""
-        source_path = Path(options["source"])
-
-        # Validate source file
+    def _validate_source(self, source: str) -> Path:
+        """Validate source file exists and is a file."""
+        source_path = Path(source)
         if not source_path.exists():
             raise CommandError(f"Source file not found: {source_path}")
-
         if not source_path.is_file():
             raise CommandError(f"Source path is not a file: {source_path}")
+        return source_path
 
-        # Determine output directory
-        if options["output"]:
-            output_dir = Path(options["output"])
-        else:
-            output_dir = Path(settings.BASE_DIR) / "static" / "favicon"
+    def _get_output_dir(self, output: str) -> Path:
+        """Get output directory path."""
+        if output:
+            return Path(output)
+        return Path(settings.BASE_DIR) / "static" / "favicon"
 
-        # Parse sizes
-        if options["sizes"]:
-            try:
-                sizes = [int(s.strip()) for s in options["sizes"].split(",")]
-            except ValueError as err:
-                raise CommandError(f"Invalid sizes format: {err}") from err
-        else:
-            sizes = FAVICON_SIZES
+    def _parse_sizes(self, sizes_str: str) -> list[int]:
+        """Parse comma-separated sizes string."""
+        if not sizes_str:
+            return FAVICON_SIZES
+        try:
+            return [int(s.strip()) for s in sizes_str.split(",")]
+        except ValueError as err:
+            raise CommandError(f"Invalid sizes format: {err}") from err
 
-        # Parse formats
-        formats = options["formats"].lower().split(",")
+    def _parse_formats(self, formats_str: str) -> list[str]:
+        """Parse and validate formats string."""
+        formats = formats_str.lower().split(",")
         valid_formats = {"png", "ico", "apple", "ms", "all"}
         for fmt in formats:
             if fmt.strip() not in valid_formats:
                 raise CommandError(
                     f"Invalid format '{fmt}'. Valid: {', '.join(valid_formats)}"
                 )
+        return formats
+
+    def _run_generation(
+        self, generator: FaviconGenerator, formats: list[str], sizes: list[int]
+    ) -> None:
+        """Run the actual favicon generation."""
+        if "all" in formats or "png" in formats:
+            self.stdout.write("  Generating PNG favicons...")
+            generator.generate_png()
+
+        if "all" in formats or "ico" in formats:
+            self.stdout.write("  Generating ICO favicon...")
+            generator.generate_ico()
+
+        if "all" in formats or "apple" in formats:
+            self.stdout.write("  Generating Apple touch icons...")
+            generator.generate_apple_touch_icons()
+
+        if "all" in formats or "ms" in formats:
+            self.stdout.write("  Generating Microsoft tiles...")
+            generator.generate_ms_tiles()
+
+    def handle(self, *args: Any, **options: Any) -> None:
+        """Execute the command."""
+        source_path = self._validate_source(options["source"])
+        output_dir = self._get_output_dir(options["output"])
+        sizes = self._parse_sizes(options["sizes"])
+        formats = self._parse_formats(options["formats"])
 
         # Dry run mode
         if options["dry_run"]:
-            self.stdout.write(self.style.NOTICE("Dry run mode - no files will be created"))
-            self.stdout.write(f"Source: {source_path}")
-            self.stdout.write(f"Output: {output_dir}")
-            self.stdout.write(f"Formats: {', '.join(formats)}")
-            self.stdout.write(f"Sizes: {', '.join(map(str, sizes))}")
-            self._show_planned_files(formats, sizes)
+            self._handle_dry_run(source_path, output_dir, formats, sizes)
             return
 
         # Create output directory
@@ -121,55 +149,59 @@ class Command(BaseCommand):
 
         # Check for existing files
         if not options["force"]:
-            existing = list(output_dir.glob("favicon*"))
-            if existing:
-                self.stdout.write(
-                    self.style.WARNING(
-                        f"Found {len(existing)} existing favicon files. "
-                        "Use --force to overwrite."
-                    )
-                )
+            self._check_existing_files(output_dir)
 
         # Generate favicons
+        self._generate_favicons(source_path, output_dir, formats, sizes)
+
+    def _handle_dry_run(
+        self, source_path: Path, output_dir: Path, formats: list[str], sizes: list[int]
+    ) -> None:
+        """Handle dry run mode output."""
+        self.stdout.write(self.style.NOTICE("Dry run mode - no files will be created"))
+        self.stdout.write(f"Source: {source_path}")
+        self.stdout.write(f"Output: {output_dir}")
+        self.stdout.write(f"Formats: {', '.join(formats)}")
+        self.stdout.write(f"Sizes: {', '.join(map(str, sizes))}")
+        self._show_planned_files(formats, sizes)
+
+    def _check_existing_files(self, output_dir: Path) -> None:
+        """Check and warn about existing files."""
+        existing = list(output_dir.glob("favicon*"))
+        if existing:
+            self.stdout.write(
+                self.style.WARNING(
+                    f"Found {len(existing)} existing favicon files. "
+                    "Use --force to overwrite."
+                )
+            )
+
+    def _generate_favicons(
+        self, source_path: Path, output_dir: Path, formats: list[str], sizes: list[int]
+    ) -> None:
+        """Generate favicon files."""
         self.stdout.write(f"Generating favicons from {source_path}...")
 
         try:
             generator = FaviconGenerator(str(source_path), str(output_dir))
-
-            # Override sizes if specified
-            if options["sizes"]:
-                generator.sizes = sizes
-
-            # Generate based on requested formats
-            if "all" in formats or "png" in formats:
-                self.stdout.write("  Generating PNG favicons...")
-                generator.generate_png()
-
-            if "all" in formats or "ico" in formats:
-                self.stdout.write("  Generating ICO favicon...")
-                generator.generate_ico()
-
-            if "all" in formats or "apple" in formats:
-                self.stdout.write("  Generating Apple touch icons...")
-                generator.generate_apple_touch_icons()
-
-            if "all" in formats or "ms" in formats:
-                self.stdout.write("  Generating Microsoft tiles...")
-                generator.generate_ms_tiles()
+            generator.sizes = sizes
+            self._run_generation(generator, formats, sizes)
 
             self.stdout.write(
                 self.style.SUCCESS(f"Successfully generated favicons in {output_dir}")
             )
-
-            # List generated files
-            generated = list(output_dir.glob("*"))
-            self.stdout.write(f"Generated {len(generated)} files:")
-            for file_path in sorted(generated):
-                size = file_path.stat().st_size
-                self.stdout.write(f"  - {file_path.name} ({size:,} bytes)")
+            self._list_generated_files(output_dir)
 
         except Exception as err:
             raise CommandError(f"Error generating favicons: {err}") from err
+
+    def _list_generated_files(self, output_dir: Path) -> None:
+        """List generated files with sizes."""
+        generated = list(output_dir.glob("*"))
+        self.stdout.write(f"Generated {len(generated)} files:")
+        for file_path in sorted(generated):
+            size = file_path.stat().st_size
+            self.stdout.write(f"  - {file_path.name} ({size:,} bytes)")
 
     def _show_planned_files(self, formats: list[str], sizes: list[int]) -> None:
         """Show files that would be generated."""

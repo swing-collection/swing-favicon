@@ -19,7 +19,6 @@ Provides Favicon PNG File Tests Class
 # Import | Standard Library
 from http import HTTPStatus
 
-# Import | Libraries
 from django.test import SimpleTestCase
 
 # Import | Local Modules
@@ -29,12 +28,15 @@ from django.test import SimpleTestCase
 # Variables
 # =============================================================================
 
-__all__: list[str] = ["FaviconPNGTests", ]
+__all__: list[str] = [
+    "FaviconPNGTests",
+]
 
 
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class FaviconPNGTests(SimpleTestCase):
     """
@@ -48,18 +50,7 @@ class FaviconPNGTests(SimpleTestCase):
 
         response = self.client.get("/favicon.ico")
 
-        self.assertEqual(
-            response.status_code,
-            HTTPStatus.OK
-        )
-        self.assertEqual(
-            response["Cache-Control"],
-            "max-age=86400, immutable, public"
-        )
-        self.assertEqual(
-            response["Content-Type"], "image/png"
-        )
-        self.assertGreater(
-            len(response.getvalue()),
-            0
-        )
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(response["Cache-Control"], "max-age=86400, immutable, public")
+        self.assertEqual(response["Content-Type"], "image/png")
+        self.assertGreater(len(response.getvalue()), 0)

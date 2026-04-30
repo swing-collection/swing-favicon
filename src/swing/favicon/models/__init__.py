@@ -12,6 +12,7 @@ Provides Favicon Models Module
 """
 
 
+# Import | Local
 # Imports
 # =============================================================================
 from .model_favicon import FaviconModel

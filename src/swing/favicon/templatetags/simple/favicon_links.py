@@ -26,6 +26,7 @@ Supported variants:
 
 from django import template
 
+# Import | Local
 # Import the individual tag modules to get their register instances
 from .tag_favicon_links import favicon_links
 from .tag_favicon_links_full import favicon_links_full

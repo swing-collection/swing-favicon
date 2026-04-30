@@ -19,10 +19,6 @@ Provides Favicon Config Class
 # Imports
 # =============================================================================
 
-# Import | Standard Library
-
-
-# Import | Libraries
 from django.apps import AppConfig
 from django.utils.translation import gettext_lazy as _
 
@@ -32,6 +28,7 @@ from django.utils.translation import gettext_lazy as _
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class FaviconConfig(AppConfig):
     """
@@ -57,14 +54,13 @@ class FaviconConfig(AppConfig):
     # The implicit primary key type to add to models within this app.
     default_auto_field = "django.db.models.BigAutoField"
 
-
     # def ready(self):
     #     """
     #     Apps Config Ready Function
     #     """
 
-        # Implicitly connect signal handlers decorated with @receiver.
-        # from .. import signals
+    # Implicitly connect signal handlers decorated with @receiver.
+    # from .. import signals
 
-        # Explicitly connect a signal handler.
-        # request_finished.connect(signals.my_callback)
+    # Explicitly connect a signal handler.
+    # request_finished.connect(signals.my_callback)

@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """Favicon not supported exception."""
 
+# Import | Standard Library
 from pathlib import Path
 
-from .exception_base import FaviconsError
+# Import | Local
 from ..constants.constants_favicon import SUPPORTED_FORMATS
+from .exception_base import FaviconsError
 
 
 class FaviconNotSupportedError(FaviconsError):

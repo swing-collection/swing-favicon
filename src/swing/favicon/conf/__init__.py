@@ -15,7 +15,6 @@ Example in settings.py:
 
 from django.conf import settings
 
-
 # =============================================================================
 # Path Settings
 # =============================================================================
@@ -75,9 +74,7 @@ FAVICON_DISPLAY_MODE: str = getattr(settings, "FAVICON_DISPLAY_MODE", "standalon
 FAVICON_ORIENTATION: str = getattr(settings, "FAVICON_ORIENTATION", "any")
 
 # PWA background color (splash screen)
-FAVICON_BACKGROUND_COLOR: str = getattr(
-    settings, "FAVICON_BACKGROUND_COLOR", "#ffffff"
-)
+FAVICON_BACKGROUND_COLOR: str = getattr(settings, "FAVICON_BACKGROUND_COLOR", "#ffffff")
 
 
 # =============================================================================

@@ -20,7 +20,6 @@ Provides Favicon File Tests Class
 # Import | Standard Library
 from http import HTTPStatus
 
-# Import | Libraries
 from django.test import SimpleTestCase
 
 # Import | Local Modules
@@ -30,12 +29,15 @@ from django.test import SimpleTestCase
 # Variables
 # =============================================================================
 
-__all__: list[str] = ["FaviconFileTests", ]
+__all__: list[str] = [
+    "FaviconFileTests",
+]
 
 
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class FaviconFileTests(SimpleTestCase):
     """Test favicon file serving."""
@@ -58,15 +60,9 @@ class FaviconFileTests(SimpleTestCase):
             with self.subTest(name):
                 response = self.client.get(f"/{name}")
 
-                self.assertEqual(
-                    response.status_code,
-                    HTTPStatus.OK
-                )
+                self.assertEqual(response.status_code, HTTPStatus.OK)
                 self.assertEqual(
                     response["Cache-Control"],
                     "max-age=86400, immutable, public",
                 )
-                self.assertGreater(
-                    len(response.getvalue()),
-                    0
-                )
+                self.assertGreater(len(response.getvalue()), 0)

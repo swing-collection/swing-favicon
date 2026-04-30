@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Helper functions for favicon template tags."""
 
+# Import | Local
 from .helper_android_links import get_android_links
 from .helper_apple_links import get_apple_links
 from .helper_base_path import get_base_path

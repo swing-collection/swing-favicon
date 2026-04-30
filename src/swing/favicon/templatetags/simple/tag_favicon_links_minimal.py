@@ -5,6 +5,7 @@ from django import template
 from django.templatetags.static import static
 from django.utils.safestring import mark_safe
 
+# Import | Local
 from .helpers import get_base_path, get_theme_color
 
 register = template.Library()

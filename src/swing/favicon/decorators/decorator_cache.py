@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 """Favicon cache decorator."""
 
+# Import | Standard Library
 from typing import Callable
 
 from django.views.decorators.cache import cache_control
 
+# Import | Local
 from ..conf import (
-    FAVICON_CACHE_MAX_AGE,
     FAVICON_CACHE_IMMUTABLE,
+    FAVICON_CACHE_MAX_AGE,
     FAVICON_CACHE_PUBLIC,
 )
 

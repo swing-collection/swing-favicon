@@ -24,23 +24,22 @@ import mimetypes
 from pathlib import Path
 from typing import Optional
 
-# Import | Libraries
 from django.conf import settings
-from django.http import FileResponse, HttpRequest, HttpResponse, Http404
-from django.views import View
-from django.views.decorators.http import require_GET
-from django.views.decorators.cache import cache_control
-from django.utils.decorators import method_decorator
 from django.contrib.staticfiles import finders
+from django.http import FileResponse, Http404, HttpRequest, HttpResponse
+from django.utils.decorators import method_decorator
+from django.views import View
+from django.views.decorators.cache import cache_control
+from django.views.decorators.http import require_GET
 
+# Import | Local
 # Import | Local Modules
 from ..conf import (
     FAVICON_BASE_PATH,
-    FAVICON_CACHE_MAX_AGE,
     FAVICON_CACHE_IMMUTABLE,
+    FAVICON_CACHE_MAX_AGE,
     FAVICON_CACHE_PUBLIC,
 )
-
 
 # =============================================================================
 # Variables
@@ -62,6 +61,7 @@ CONTENT_TYPES = {
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class FaviconFileView(View):
     """

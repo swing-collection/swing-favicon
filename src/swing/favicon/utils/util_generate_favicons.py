@@ -9,12 +9,16 @@ Supports:
 - Microsoft Tiles (all Windows sizes)
 - Safari Pinned Tab (monochrome SVG generation)
 """
+
+# Import | Standard Library
 import logging
 import os
 import sys
 
+# Import | Libraries
 from PIL import Image
 
+# Import | Local
 from ..conf import FAVICON_SIZES
 from ..constants.constants_favicon import (
     ANDROID_CHROME_SIZES,

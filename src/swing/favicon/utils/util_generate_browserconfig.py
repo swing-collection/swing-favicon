@@ -6,11 +6,13 @@ browserconfig.xml is an XML file that defines tile images and colors for
 Windows 8/10/11 Start menu tiles and Internet Explorer 11+ pinned sites.
 """
 
-from xml.etree.ElementTree import Element, SubElement, tostring
-from xml.dom.minidom import parseString
+# Import | Standard Library
 from typing import Optional
+from xml.dom.minidom import parseString
+from xml.etree.ElementTree import Element, SubElement, tostring
 
-from ..conf import FAVICON_MS_TILE_COLOR, FAVICON_BASE_PATH
+# Import | Local
+from ..conf import FAVICON_BASE_PATH, FAVICON_MS_TILE_COLOR
 from ..constants import BROWSERCONFIG_TILES
 
 

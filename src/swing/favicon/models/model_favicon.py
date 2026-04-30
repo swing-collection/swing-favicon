@@ -22,9 +22,8 @@ support for multiple sizes and formats.
 # Import | Standard Library
 from pathlib import Path
 
-# Import | Libraries
-from django.db import models
 from django.conf import settings
+from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 # Import | Local Modules
@@ -33,6 +32,7 @@ from django.utils.translation import gettext_lazy as _
 # =============================================================================
 # Classes
 # =============================================================================
+
 
 class FaviconModel(models.Model):
     """

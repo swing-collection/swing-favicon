@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """Favicon not found exception."""
 
+# Import | Standard Library
 from pathlib import Path
 
+# Import | Local
 from .exception_base import FaviconsError
 
 

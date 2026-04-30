@@ -3,6 +3,7 @@
 
 from django import template
 
+# Import | Local
 from .tag_favicon_links import favicon_links
 
 register = template.Library()

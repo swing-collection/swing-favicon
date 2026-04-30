@@ -1,7 +1,9 @@
 """Common utility functions for favicon icon types."""
 
+# Import | Standard Library
 from typing import Generator
 
+# Import | Local
 from ..constants.constants_favicon import FAVICON_TYPES
 
 
