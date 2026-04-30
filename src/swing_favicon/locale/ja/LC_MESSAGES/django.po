@@ -1,0 +1,85 @@
+# Japanese translations for swing-favicon
+# Copyright (C) 2026 Scape Agency
+# This file is distributed under the BSD-3-Clause license.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-favicon 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-30 12:00+0000\n"
+"PO-Revision-Date: 2026-04-30 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: apps.py
+msgid "Website Favicon"
+msgstr "ウェブサイトファビコン"
+
+#: models/model_favicon.py
+msgid "Favicon"
+msgstr "ファビコン"
+
+#: models/model_favicon.py
+msgid "Favicons"
+msgstr "ファビコン"
+
+#: models/model_favicon.py
+msgid "Source Image"
+msgstr "ソース画像"
+
+#: models/model_favicon.py
+msgid "Upload a square PNG or SVG image, minimum 512x512 pixels."
+msgstr "正方形のPNGまたはSVG画像をアップロードしてください（最小512x512ピクセル）。"
+
+#: models/model_favicon.py
+msgid "Name"
+msgstr "名前"
+
+#: models/model_favicon.py
+msgid "Optional identifier for this favicon set."
+msgstr "このファビコンセットのオプション識別子。"
+
+#: models/model_favicon.py
+msgid "Active"
+msgstr "有効"
+
+#: models/model_favicon.py
+msgid "Whether this favicon set is currently in use."
+msgstr "このファビコンセットが現在使用中かどうか。"
+
+#: models/model_favicon.py
+msgid "Created"
+msgstr "作成日時"
+
+#: models/model_favicon.py
+msgid "Updated"
+msgstr "更新日時"
+
+#: admin.py
+msgid "Preview"
+msgstr "プレビュー"
+
+#: admin.py
+msgid "Metadata"
+msgstr "メタデータ"
+
+#: admin.py
+msgid "Image Preview"
+msgstr "画像プレビュー"
+
+#: admin.py
+msgid "Dimensions"
+msgstr "サイズ"
+
+#: admin.py
+msgid "Favicon variants generated successfully."
+msgstr "ファビコンのバリエーションが正常に生成されました。"
+
+#: admin.py
+msgid "Error generating favicon variants: %s"
+msgstr "ファビコンのバリエーション生成中にエラーが発生しました：%s"

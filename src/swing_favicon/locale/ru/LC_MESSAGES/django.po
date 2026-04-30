@@ -1,0 +1,85 @@
+# Russian translations for swing-favicon
+# Copyright (C) 2026 Scape Agency
+# This file is distributed under the BSD-3-Clause license.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-favicon 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-30 12:00+0000\n"
+"PO-Revision-Date: 2026-04-30 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: apps.py
+msgid "Website Favicon"
+msgstr "Фавикон сайта"
+
+#: models/model_favicon.py
+msgid "Favicon"
+msgstr "Фавикон"
+
+#: models/model_favicon.py
+msgid "Favicons"
+msgstr "Фавиконы"
+
+#: models/model_favicon.py
+msgid "Source Image"
+msgstr "Исходное изображение"
+
+#: models/model_favicon.py
+msgid "Upload a square PNG or SVG image, minimum 512x512 pixels."
+msgstr "Загрузите квадратное изображение PNG или SVG, минимум 512x512 пикселей."
+
+#: models/model_favicon.py
+msgid "Name"
+msgstr "Название"
+
+#: models/model_favicon.py
+msgid "Optional identifier for this favicon set."
+msgstr "Необязательный идентификатор для этого набора фавиконов."
+
+#: models/model_favicon.py
+msgid "Active"
+msgstr "Активен"
+
+#: models/model_favicon.py
+msgid "Whether this favicon set is currently in use."
+msgstr "Используется ли этот набор фавиконов в настоящее время."
+
+#: models/model_favicon.py
+msgid "Created"
+msgstr "Создано"
+
+#: models/model_favicon.py
+msgid "Updated"
+msgstr "Обновлено"
+
+#: admin.py
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#: admin.py
+msgid "Metadata"
+msgstr "Метаданные"
+
+#: admin.py
+msgid "Image Preview"
+msgstr "Предпросмотр изображения"
+
+#: admin.py
+msgid "Dimensions"
+msgstr "Размеры"
+
+#: admin.py
+msgid "Favicon variants generated successfully."
+msgstr "Варианты фавикона успешно сгенерированы."
+
+#: admin.py
+msgid "Error generating favicon variants: %s"
+msgstr "Ошибка при генерации вариантов фавикона: %s"

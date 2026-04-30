@@ -1,0 +1,85 @@
+# Italian translations for swing-favicon
+# Copyright (C) 2026 Scape Agency
+# This file is distributed under the BSD-3-Clause license.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-favicon 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-30 12:00+0000\n"
+"PO-Revision-Date: 2026-04-30 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps.py
+msgid "Website Favicon"
+msgstr "Favicon del sito web"
+
+#: models/model_favicon.py
+msgid "Favicon"
+msgstr "Favicon"
+
+#: models/model_favicon.py
+msgid "Favicons"
+msgstr "Favicon"
+
+#: models/model_favicon.py
+msgid "Source Image"
+msgstr "Immagine sorgente"
+
+#: models/model_favicon.py
+msgid "Upload a square PNG or SVG image, minimum 512x512 pixels."
+msgstr "Carica un'immagine PNG o SVG quadrata, minimo 512x512 pixel."
+
+#: models/model_favicon.py
+msgid "Name"
+msgstr "Nome"
+
+#: models/model_favicon.py
+msgid "Optional identifier for this favicon set."
+msgstr "Identificatore opzionale per questo set di favicon."
+
+#: models/model_favicon.py
+msgid "Active"
+msgstr "Attivo"
+
+#: models/model_favicon.py
+msgid "Whether this favicon set is currently in use."
+msgstr "Se questo set di favicon è attualmente in uso."
+
+#: models/model_favicon.py
+msgid "Created"
+msgstr "Creato"
+
+#: models/model_favicon.py
+msgid "Updated"
+msgstr "Aggiornato"
+
+#: admin.py
+msgid "Preview"
+msgstr "Anteprima"
+
+#: admin.py
+msgid "Metadata"
+msgstr "Metadati"
+
+#: admin.py
+msgid "Image Preview"
+msgstr "Anteprima immagine"
+
+#: admin.py
+msgid "Dimensions"
+msgstr "Dimensioni"
+
+#: admin.py
+msgid "Favicon variants generated successfully."
+msgstr "Varianti favicon generate con successo."
+
+#: admin.py
+msgid "Error generating favicon variants: %s"
+msgstr "Errore durante la generazione delle varianti favicon: %s"

@@ -1,0 +1,85 @@
+# Simplified Chinese translations for swing-favicon
+# Copyright (C) 2026 Scape Agency
+# This file is distributed under the BSD-3-Clause license.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: swing-favicon 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-30 12:00+0000\n"
+"PO-Revision-Date: 2026-04-30 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: apps.py
+msgid "Website Favicon"
+msgstr "网站图标"
+
+#: models/model_favicon.py
+msgid "Favicon"
+msgstr "网站图标"
+
+#: models/model_favicon.py
+msgid "Favicons"
+msgstr "网站图标"
+
+#: models/model_favicon.py
+msgid "Source Image"
+msgstr "源图像"
+
+#: models/model_favicon.py
+msgid "Upload a square PNG or SVG image, minimum 512x512 pixels."
+msgstr "上传正方形PNG或SVG图像，最小512x512像素。"
+
+#: models/model_favicon.py
+msgid "Name"
+msgstr "名称"
+
+#: models/model_favicon.py
+msgid "Optional identifier for this favicon set."
+msgstr "此网站图标集的可选标识符。"
+
+#: models/model_favicon.py
+msgid "Active"
+msgstr "启用"
+
+#: models/model_favicon.py
+msgid "Whether this favicon set is currently in use."
+msgstr "此网站图标集是否正在使用中。"
+
+#: models/model_favicon.py
+msgid "Created"
+msgstr "创建时间"
+
+#: models/model_favicon.py
+msgid "Updated"
+msgstr "更新时间"
+
+#: admin.py
+msgid "Preview"
+msgstr "预览"
+
+#: admin.py
+msgid "Metadata"
+msgstr "元数据"
+
+#: admin.py
+msgid "Image Preview"
+msgstr "图像预览"
+
+#: admin.py
+msgid "Dimensions"
+msgstr "尺寸"
+
+#: admin.py
+msgid "Favicon variants generated successfully."
+msgstr "网站图标变体生成成功。"
+
+#: admin.py
+msgid "Error generating favicon variants: %s"
+msgstr "生成网站图标变体时出错：%s"
