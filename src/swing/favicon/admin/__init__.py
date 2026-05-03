@@ -5,7 +5,19 @@
 Favicon Admin Configuration
 ===========================
 
-Django admin interface for managing favicon images.
+Django admin interface for managing favicon images. Provides preview
+capabilities and metadata display for uploaded favicon files.
+
+Example:
+    The admin is automatically registered when the app is loaded::
+
+        INSTALLED_APPS = [
+            ...
+            'swing.favicon',
+        ]
+
+    Then access via /admin/favicon/faviconmodel/
+
 """
 
 from django.contrib import admin
@@ -19,7 +31,17 @@ from ..models import FaviconModel
 
 @admin.register(FaviconModel)
 class FaviconAdmin(admin.ModelAdmin):
-    """Admin interface for FaviconModel."""
+    """
+    Django admin interface for FaviconModel.
+
+    Provides image preview, dimensions display, and metadata management
+    for uploaded favicon images.
+
+    Attributes:
+        list_display: Fields shown in the list view.
+        readonly_fields: Fields that cannot be edited.
+        fieldsets: Field groupings in the detail view.
+    """
 
     list_display = ["__str__", "image_preview", "image_dimensions", "updated_at"]
     readonly_fields = [

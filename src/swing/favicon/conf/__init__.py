@@ -128,3 +128,22 @@ FAVICON_AUTO_GENERATE: bool = getattr(settings, "FAVICON_AUTO_GENERATE", False)
 
 # Serve favicons from database model instead of static files
 FAVICON_USE_MODEL: bool = getattr(settings, "FAVICON_USE_MODEL", False)
+
+
+# =============================================================================
+# Dark Mode Settings
+# =============================================================================
+
+# Enable dark mode favicon variants
+FAVICON_DARK_MODE_ENABLED: bool = getattr(settings, "FAVICON_DARK_MODE_ENABLED", False)
+
+# Suffix for dark mode favicon files (e.g., favicon-dark.svg)
+FAVICON_DARK_MODE_SUFFIX: str = getattr(settings, "FAVICON_DARK_MODE_SUFFIX", "-dark")
+
+# Theme color for dark mode (browser chrome)
+FAVICON_DARK_THEME_COLOR: str = getattr(settings, "FAVICON_DARK_THEME_COLOR", "#1a1a1a")
+
+# Background color for dark mode (PWA splash screen)
+FAVICON_DARK_BACKGROUND_COLOR: str = getattr(
+    settings, "FAVICON_DARK_BACKGROUND_COLOR", "#1a1a1a"
+)

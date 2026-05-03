@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+Debug-Aware Favicon View
+========================
+
+View that serves different favicon files based on Django's DEBUG setting.
+Useful for visually distinguishing development from production environments.
+
+"""
+
 from django.conf import settings
 from django.http import FileResponse, HttpRequest, HttpResponse
 from django.views.decorators.cache import cache_control
@@ -18,11 +28,31 @@ from ..conf import (
     public=FAVICON_CACHE_PUBLIC,
 )
 def favicon(request: HttpRequest) -> HttpResponse:
-    """Serve favicon based on DEBUG setting."""
+    """
+    Serve favicon based on DEBUG setting.
 
-    if settings.DEBUG:
-        name = "favicon-debug.png"
-    else:
-        name = "favicon.png"
-    file = (settings.BASE_DIR / "static" / name).open("rb")
-    return FileResponse(file)
+    Returns a different favicon file depending on whether Django is running
+    in DEBUG mode, allowing visual distinction between environments.
+
+    Args:
+        request: The incoming HTTP request.
+
+    Returns:
+        FileResponse containing the appropriate favicon image.
+
+    Raises:
+        Http404: If the favicon file does not exist.
+    """
+    name = "favicon-debug.png" if settings.DEBUG else "favicon.png"
+    file_path = settings.BASE_DIR / "static" / name
+
+    if not file_path.is_file():
+        from django.http import Http404
+
+        raise Http404(f"Favicon '{name}' not found.")
+
+    # FileResponse handles closing the file automatically
+    return FileResponse(
+        open(file_path, "rb"),  # noqa: SIM115
+        content_type="image/png",
+    )

@@ -10,6 +10,7 @@ from .helpers import (
     get_android_links,
     get_apple_links,
     get_base_path,
+    get_dark_mode_links,
     get_manifest_links,
     get_microsoft_links,
     get_safari_links,
@@ -48,6 +49,9 @@ def favicon_links(variant: str = "minimal") -> str:
 
     # Always include theme color
     links.append(f'<meta name="theme-color" content="{theme_color}">')
+
+    # Dark mode support (if enabled)
+    links.extend(get_dark_mode_links(base_path))
 
     if variant in ("minimal", "standard", "full"):
         links.extend(get_standard_links(base_path))

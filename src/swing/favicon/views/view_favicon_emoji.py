@@ -1,4 +1,14 @@
-# https://adamj.eu/tech/2022/01/18/how-to-add-a-favicon-to-your-django-site/
+# -*- coding: utf-8 -*-
+"""
+Emoji SVG Favicon View
+======================
+
+View that returns an inline SVG favicon containing an emoji character.
+Useful for quick prototyping without needing actual favicon files.
+
+Reference: https://adamj.eu/tech/2022/01/18/how-to-add-a-favicon-to-your-django-site/
+
+"""
 
 from django.http import HttpRequest, HttpResponse
 from django.views.decorators.cache import cache_control

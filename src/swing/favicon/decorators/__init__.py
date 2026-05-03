@@ -5,9 +5,21 @@
 # =============================================================================
 
 """
-Provides Favicon Decorators Module
-=================================
+Favicon Decorators
+==================
 
+Decorators for favicon view functions.
+
+Available Decorators:
+    favicon_cache: Apply favicon-specific caching headers to a view.
+    add_favicon_headers: Add favicon-related HTTP headers to responses.
+
+Example:
+    from swing.favicon.decorators import favicon_cache
+
+    @favicon_cache
+    def my_favicon_view(request):
+        return FileResponse(open('favicon.ico', 'rb'))
 
 """
 

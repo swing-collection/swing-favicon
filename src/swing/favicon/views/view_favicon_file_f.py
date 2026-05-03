@@ -80,17 +80,31 @@ def favicon_file_view(request: HttpRequest) -> HttpResponse:
     # return FileResponse(file)
 
     name = request.path.lstrip("/")
+
+    # Sanitize filename - prevent directory traversal
+    # Import | Standard Library
+    from pathlib import Path
+
+    name = Path(name).name
+    if not name or ".." in name:
+        raise Http404("Invalid filename.")
+
     file_path = settings.BASE_DIR / "static" / name
+    static_dir = (settings.BASE_DIR / "static").resolve()
 
     # Ensure the file path is within the expected directory
-    if (
-        not file_path.is_file()
-        or not file_path.resolve().parent == (settings.BASE_DIR / "static").resolve()
-    ):
+    if not file_path.is_file():
+        raise Http404(f"File '{name}' not found.")
+
+    # Security check: ensure resolved path is within static directory
+    if not file_path.resolve().is_relative_to(static_dir):
         raise Http404(f"File '{name}' not found.")
 
     try:
-        with file_path.open("rb") as file:
-            return FileResponse(file)
+        # FileResponse handles closing the file automatically
+        return FileResponse(
+            open(file_path, "rb"),  # noqa: SIM115
+            content_type="application/octet-stream",
+        )
     except IOError as exc:
         raise Http404(f"Unable to read file '{name}'.") from exc

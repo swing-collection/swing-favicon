@@ -5,9 +5,22 @@
 # =============================================================================
 
 """
-Provides Favicon Exceptions Module
-==================================
+Favicon Exceptions
+==================
 
+Exception classes for favicon operations.
+
+Exception Hierarchy:
+    FaviconsError (base)
+    ├── FaviconNotFoundError  - Raised when favicon file doesn't exist
+    ├── FaviconNotSupportedError - Raised for unsupported file formats
+    └── FaviconColorError - Raised for invalid color values
+
+Example:
+    from swing.favicon.exceptions import FaviconNotFoundError
+
+    if not favicon_path.exists():
+        raise FaviconNotFoundError(favicon_path)
 
 """
 

@@ -6,11 +6,19 @@
 # =============================================================================
 
 """
-Provides Favicon Config Class
-=============================
+Favicon Django Application Configuration
+=========================================
 
-...
+This module contains the Django AppConfig for the swing.favicon application.
+It registers the app with Django and configures app-specific settings.
 
+Example:
+    Add to INSTALLED_APPS in settings.py::
+
+        INSTALLED_APPS = [
+            ...
+            'swing.favicon',
+        ]
 
 """
 
@@ -22,9 +30,6 @@ Provides Favicon Config Class
 from django.apps import AppConfig
 from django.utils.translation import gettext_lazy as _
 
-# Import | Local Modules
-
-
 # =============================================================================
 # Classes
 # =============================================================================
@@ -32,9 +37,16 @@ from django.utils.translation import gettext_lazy as _
 
 class FaviconConfig(AppConfig):
     """
-    Favicon Config Class
-    ====================
+    Django application configuration for swing.favicon.
 
+    This AppConfig registers the favicon app with Django's application
+    registry and provides metadata such as the app name and label.
+
+    Attributes:
+        name: Full Python path to the application module.
+        label: Short unique name for the application.
+        verbose_name: Human-readable name for the application.
+        default_auto_field: Default primary key field type.
     """
 
     # Full Python path to the application

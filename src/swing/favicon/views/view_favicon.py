@@ -6,9 +6,11 @@
 # =============================================================================
 
 """
-Provides Typology Group Model Class
-===================================
+Favicon Static File View
+========================
 
+Simple view function for serving a static favicon.png file from the
+project's static directory with caching headers applied.
 
 """
 

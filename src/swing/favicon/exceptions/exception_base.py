@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Base exception class for favicons."""
+"""
+Base Exception Class
+====================
+
+Base exception class for all favicon-related errors. Supports string
+formatting with positional and keyword arguments, and serialization
+to dict or JSON format.
+
+"""
 
 # Import | Standard Library
 import json as _json
@@ -7,26 +15,62 @@ from typing import Any, Dict
 
 
 class FaviconsError(Exception):
-    """Raise an error while running favicons."""
+    """
+    Base exception class for all favicon-related errors.
+
+    This exception supports string formatting with positional and keyword
+    arguments, and can be serialized to dict or JSON format.
+
+    Args:
+        message: Error message template with optional format placeholders.
+        *args: Positional arguments for message formatting.
+        **kwargs: Keyword arguments for message formatting.
+
+    Example:
+        raise FaviconsError("File {path} not found", path="/favicon.ico")
+
+    """
 
     def __init__(self, message: str, *args: Any, **kwargs: Any):
-        """Favicons Base Exception."""
+        """
+        Initialize the exception with a message template.
+
+        Args:
+            message: Error message template with {} placeholders.
+            *args: Positional arguments for str.format().
+            **kwargs: Keyword arguments for str.format().
+        """
         self._message = message
         self._args = args
         self._kwargs = kwargs
 
     @property
     def message(self) -> str:
-        """Format message with args & kwargs."""
+        """
+        Get the formatted error message.
+
+        Returns:
+            The message with all placeholders replaced.
+        """
         return self._message.format(*self._args, **self._kwargs)
 
     @property
     def kwargs(self) -> Dict:
-        """Keyword arguments as a dict."""
+        """
+        Get keyword arguments as a dictionary.
+
+        Returns:
+            Copy of the keyword arguments.
+        """
         return dict(self._kwargs)
 
     def __repr__(self) -> str:
-        """Representation of exception."""
+        """
+        Get detailed string representation of the exception.
+
+        Returns:
+            String with class name and all arguments.
+        """
         attrs = (
             f"message='{self.message}'",
             *(repr(a) for a in self.args),
@@ -36,11 +80,21 @@ class FaviconsError(Exception):
         return f"{self.__class__.__name__}({', '.join(attrs)})"
 
     def __str__(self) -> str:
-        """Represent exception as string."""
+        """
+        Get the formatted error message.
+
+        Returns:
+            The formatted error message string.
+        """
         return self.message
 
     def dict(self) -> Dict:
-        """Represent exception as dict."""
+        """
+        Serialize exception to a dictionary.
+
+        Returns:
+            Dictionary with message, arguments, and keyword_arguments.
+        """
         return {
             "message": self.message,
             "arguments": list(self.args),
@@ -48,5 +102,10 @@ class FaviconsError(Exception):
         }
 
     def json(self) -> str:
-        """Represent exception as JSON string."""
+        """
+        Serialize exception to a JSON string.
+
+        Returns:
+            JSON representation of the exception.
+        """
         return _json.dumps(self.dict())

@@ -1,13 +1,23 @@
 """
+Favicon Generator Utility
+=========================
+
 Generate common favicon formats from a single source image.
 
 Supports:
-- Multi-resolution ICO (16, 24, 32, 48, 64, 128, 256 packed into one file)
-- PNG favicons (all standard sizes)
-- Apple Touch Icons (all iOS sizes)
-- Android Chrome Icons (including maskable for PWA)
-- Microsoft Tiles (all Windows sizes)
-- Safari Pinned Tab (monochrome SVG generation)
+    - Multi-resolution ICO (16, 24, 32, 48, 64, 128, 256 packed into one file)
+    - PNG favicons (all standard sizes)
+    - Apple Touch Icons (all iOS sizes)
+    - Android Chrome Icons (including maskable for PWA)
+    - Microsoft Tiles (all Windows sizes)
+    - Safari Pinned Tab (monochrome SVG generation)
+
+Example:
+    from swing.favicon.utils import FaviconGenerator
+
+    generator = FaviconGenerator("logo.png", "static/favicon")
+    generator.generate_all()
+
 """
 
 # Import | Standard Library
@@ -29,7 +39,29 @@ from ..constants.constants_favicon import (
 
 
 class FaviconGenerator:
-    """Generate common favicon formats from a single source image."""
+    """
+    Generate common favicon formats from a single source image.
+
+    This class provides methods to generate all standard favicon formats
+    from a single source image (PNG or SVG recommended).
+
+    Args:
+        input_image_path: Path to the source image file.
+        output_dir: Directory where generated favicons will be saved.
+
+    Attributes:
+        ICO_SIZES: Standard sizes packed into multi-resolution ICO files.
+        ANDROID_SIZES: Android Chrome icon sizes.
+        MASKABLE_SIZES: PWA maskable icon sizes (safe zone icons).
+
+    Example:
+        generator = FaviconGenerator("logo.png", "output/")
+        generator.generate_all()  # Generate all formats
+        # Or generate specific formats:
+        generator.generate_ico()
+        generator.generate_apple_touch_icons()
+
+    """
 
     # Standard ICO sizes (packed into single .ico file)
     ICO_SIZES = ICO_SIZES
@@ -41,6 +73,13 @@ class FaviconGenerator:
     MASKABLE_SIZES = MASKABLE_ICON_SIZES
 
     def __init__(self, input_image_path: str, output_dir: str = "favicons") -> None:
+        """
+        Initialize the favicon generator.
+
+        Args:
+            input_image_path: Path to the source image (PNG or SVG recommended).
+            output_dir: Directory for generated files. Created if not exists.
+        """
         self.input_image_path = input_image_path
         self.output_dir = output_dir
         self.icon_types = FAVICON_TYPES
@@ -49,7 +88,12 @@ class FaviconGenerator:
         self.apple_touch_sizes = [57, 60, 72, 76, 114, 120, 144, 152, 167, 180, 1024]
 
     def generate_icons(self) -> None:
-        """Generate icons from icon_types configuration."""
+        """
+        Generate icons from FAVICON_TYPES configuration.
+
+        Iterates through all defined icon types and generates each one
+        with the specified format, dimensions, and prefix.
+        """
         if not os.path.exists(self.output_dir):
             os.makedirs(self.output_dir)
 
@@ -69,7 +113,12 @@ class FaviconGenerator:
             logging.exception("Error processing file")
 
     def generate_png(self) -> None:
-        """Generate PNG favicons."""
+        """
+        Generate PNG favicons in all standard sizes.
+
+        Generates PNG files for each size defined in FAVICON_SIZES.
+        Files are named favicon-{width}x{height}.png.
+        """
         self._generate_favicons("PNG")
 
     def generate_ico(self, multi_resolution: bool = True) -> None:

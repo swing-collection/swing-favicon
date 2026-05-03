@@ -23,7 +23,13 @@ INSTALLED_APPS: list[str] = [
     "swing.favicon.apps.FaviconConfig",
 ]
 
-MIDDLEWARE: list[str] = []
+MIDDLEWARE: list[str] = [
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+]
 
 ROOT_URLCONF = "tst.urls"
 
@@ -34,6 +40,7 @@ TEMPLATES = [
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
+                "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
