@@ -1,6 +1,28 @@
 {
-    "version": "0.2",
-    "language": "en",
-    "words": ["favicons", "favicon", "LANCZOS", "sgenerate", "agenerate"],
-    "ignorePaths": ["node_modules", ".venv", "*.lock", "poetry.lock"]
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "favicons",
+    "favicon",
+    "LANCZOS",
+    "sgenerate",
+    "agenerate",
+    "asgi",
+    "wsgi",
+    "gunicorn",
+    "healthz",
+    "procfile",
+    "pyproject",
+    "codegen",
+    "frontends",
+    "grotesk",
+    "specialisation",
+    "behaviour"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    ".venv",
+    "*.lock",
+    "poetry.lock"
+  ]
 }

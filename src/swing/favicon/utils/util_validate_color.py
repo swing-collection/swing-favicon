@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
 """
 Color Validation Utilities
 ==========================
@@ -9,7 +15,6 @@ Functions for validating color values used in favicon configuration.
 
 # Import | Standard Library
 import re
-from typing import Optional
 
 # Import | Local
 from ..exceptions import FaviconColorError
@@ -212,7 +217,7 @@ def is_valid_color(color: str) -> bool:
     return is_valid_hex_color(color) or is_valid_css_color(color)
 
 
-def validate_color(color: str, name: Optional[str] = None) -> str:
+def validate_color(color: str, name: str | None = None) -> str:
     """
     Validate a color value and return it if valid.
 

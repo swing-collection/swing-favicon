@@ -30,10 +30,10 @@ from django.urls.resolvers import URLPattern, URLResolver
 
 # Import | Local
 # Import | Local Modules
-from ..views import BrowserConfigView, FaviconFileView, WebManifestView
+from ..views import BrowserConfigView, FaviconFileView, OgImageView, WebManifestView
 
 if TYPE_CHECKING:
-    pass
+    pass  # pylint: disable=unnecessary-pass
 
 
 # =============================================================================
@@ -182,6 +182,8 @@ urlpatterns: list[URLPattern | URLResolver] = [
     # Web Manifest (PWA) - Dynamic generation
     path("site.webmanifest", WebManifestView.as_view(), name="webmanifest"),
     path("manifest.json", WebManifestView.as_view(), name="manifest"),
+    # Open Graph Image - Dynamic generation
+    path("og/<slug:slug>.png", OgImageView.as_view(), name="og-image"),
     # Dynamic route for any favicon file (catch-all, should be last)
     re_path(
         r"^(?P<filename>favicon[a-z0-9\-]*\.(ico|png|svg))$",

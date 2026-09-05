@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
 """
 Base Favicon View Mixin
 =======================
@@ -12,7 +18,6 @@ file serving, content type detection, and ETag support.
 import hashlib
 import mimetypes
 from pathlib import Path
-from typing import Optional
 
 from django.contrib.staticfiles import finders
 from django.http import FileResponse, Http404, HttpRequest, HttpResponse
@@ -58,7 +63,7 @@ class FaviconViewMixin:
         base_path: Base path within static files for favicon lookup.
     """
 
-    filename: Optional[str] = None
+    filename: str | None = None
     base_path: str = FAVICON_BASE_PATH
 
     def get_filename(self, request: HttpRequest, *args, **kwargs) -> str:
@@ -96,7 +101,7 @@ class FaviconViewMixin:
 
         return sanitized
 
-    def find_favicon_file(self, name: str) -> Optional[Path]:
+    def find_favicon_file(self, name: str) -> Path | None:
         """
         Find a favicon file in static directories.
 
@@ -160,7 +165,7 @@ class FaviconViewMixin:
 
     def check_not_modified(
         self, request: HttpRequest, file_path: Path, etag: str
-    ) -> Optional[HttpResponse]:
+    ) -> HttpResponse | None:
         """
         Check if client cache is still valid.
 
@@ -183,8 +188,8 @@ class FaviconViewMixin:
         self,
         file_path: Path,
         filename: str,
-        request: Optional[HttpRequest] = None,
-    ) -> HttpResponse:
+        request: HttpRequest | None = None,
+    ) -> HttpResponse | FileResponse:
         """
         Serve a file as a FileResponse with ETag and Last-Modified headers.
 
@@ -256,7 +261,7 @@ class BaseFaviconView(FaviconViewMixin, View):
         path("favicon.ico", BaseFaviconView.as_view(filename="favicon.ico"))
     """
 
-    def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
+    def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse | FileResponse:
         """
         Handle GET requests to serve a favicon file.
 

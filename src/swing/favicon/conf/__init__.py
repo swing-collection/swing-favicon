@@ -147,3 +147,27 @@ FAVICON_DARK_THEME_COLOR: str = getattr(settings, "FAVICON_DARK_THEME_COLOR", "#
 FAVICON_DARK_BACKGROUND_COLOR: str = getattr(
     settings, "FAVICON_DARK_BACKGROUND_COLOR", "#1a1a1a"
 )
+
+
+# =============================================================================
+# Open Graph Image Settings
+# =============================================================================
+
+# OG image dimensions (Open Graph standard: 1200x630)
+FAVICON_OG_WIDTH: int = getattr(settings, "FAVICON_OG_WIDTH", 1200)
+FAVICON_OG_HEIGHT: int = getattr(settings, "FAVICON_OG_HEIGHT", 630)
+
+# OG image colors (hex strings)
+FAVICON_OG_BG_COLOR: str = getattr(settings, "FAVICON_OG_BG_COLOR", "#1a365d")
+FAVICON_OG_FG_COLOR: str = getattr(settings, "FAVICON_OG_FG_COLOR", "#ffffff")
+FAVICON_OG_ACCENT_COLOR: str = getattr(settings, "FAVICON_OG_ACCENT_COLOR", "#58aff4")
+
+# OG image text defaults
+FAVICON_OG_EYEBROW: str = getattr(settings, "FAVICON_OG_EYEBROW", "")
+FAVICON_OG_SUBTITLE: str = getattr(settings, "FAVICON_OG_SUBTITLE", "")
+
+# OG image fallback URL (for when Pillow is not available)
+FAVICON_OG_FALLBACK_URL: str = getattr(settings, "FAVICON_OG_FALLBACK_URL", "")
+
+# OG image cache duration in seconds (default: 1 day)
+FAVICON_OG_CACHE_MAX_AGE: int = getattr(settings, "FAVICON_OG_CACHE_MAX_AGE", 86400)

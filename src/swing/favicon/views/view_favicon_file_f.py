@@ -21,7 +21,7 @@ and ensures only GET requests are handled.
 # =============================================================================
 
 from django.conf import settings
-from django.http import FileResponse, Http404, HttpRequest, HttpResponse
+from django.http import FileResponse, Http404, HttpRequest
 from django.views.decorators.cache import cache_control
 from django.views.decorators.http import require_GET
 
@@ -52,7 +52,7 @@ __all__: list[str] = [
     immutable=FAVICON_CACHE_IMMUTABLE,
     public=FAVICON_CACHE_PUBLIC,
 )
-def favicon_file_view(request: HttpRequest) -> HttpResponse:
+def favicon_file_view(request: HttpRequest) -> FileResponse:
     """
     Favicon File View Function
     ==========================

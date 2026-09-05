@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
 """Demo views for swing-favicon."""
 
 from django.http import HttpRequest, HttpResponse

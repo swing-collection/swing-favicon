@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
 """
 Generate site.webmanifest for PWA support.
 
@@ -12,7 +18,7 @@ References:
 
 # Import | Standard Library
 import json
-from typing import Any, Optional
+from typing import Any
 
 # Import | Local
 from ..conf import (
@@ -30,16 +36,16 @@ from ..constants import MANIFEST_ICONS
 
 
 def generate_manifest(
-    name: Optional[str] = None,
-    short_name: Optional[str] = None,
-    description: Optional[str] = None,
-    theme_color: Optional[str] = None,
-    background_color: Optional[str] = None,
-    display: Optional[str] = None,
-    orientation: Optional[str] = None,
-    start_url: Optional[str] = None,
-    base_path: Optional[str] = None,
-    icons: Optional[list] = None,
+    name: str | None = None,
+    short_name: str | None = None,
+    description: str | None = None,
+    theme_color: str | None = None,
+    background_color: str | None = None,
+    display: str | None = None,
+    orientation: str | None = None,
+    start_url: str | None = None,
+    base_path: str | None = None,
+    icons: list | None = None,
     include_maskable: bool = True,
 ) -> str:
     """
@@ -79,16 +85,16 @@ def generate_manifest(
 
 
 def generate_manifest_dict(
-    name: Optional[str] = None,
-    short_name: Optional[str] = None,
-    description: Optional[str] = None,
-    theme_color: Optional[str] = None,
-    background_color: Optional[str] = None,
-    display: Optional[str] = None,
-    orientation: Optional[str] = None,
-    start_url: Optional[str] = None,
-    base_path: Optional[str] = None,
-    icons: Optional[list] = None,
+    name: str | None = None,
+    short_name: str | None = None,
+    description: str | None = None,
+    theme_color: str | None = None,
+    background_color: str | None = None,
+    display: str | None = None,
+    orientation: str | None = None,
+    start_url: str | None = None,
+    base_path: str | None = None,
+    icons: list | None = None,
     include_maskable: bool = True,
 ) -> dict[str, Any]:
     """
@@ -170,7 +176,7 @@ def generate_manifest_dict(
     return manifest
 
 
-def get_minimal_manifest_icons(base_path: Optional[str] = None) -> list[dict]:
+def get_minimal_manifest_icons(base_path: str | None = None) -> list[dict]:
     """
     Get minimal icon set for manifest (192 and 512 only).
 

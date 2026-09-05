@@ -68,6 +68,7 @@ class FaviconAdmin(admin.ModelAdmin):
         ),
     ]
 
+    @admin.display(description=_("Preview"))
     def image_preview(self, obj: FaviconModel) -> str:
         """Display small image preview in list view."""
         if obj.image:
@@ -77,8 +78,7 @@ class FaviconAdmin(admin.ModelAdmin):
             )
         return "-"
 
-    image_preview.short_description = _("Preview")
-
+    @admin.display(description=_("Image Preview"))
     def image_preview_large(self, obj: FaviconModel) -> str:
         """Display large image preview in detail view."""
         if obj.image:
@@ -88,8 +88,7 @@ class FaviconAdmin(admin.ModelAdmin):
             )
         return "-"
 
-    image_preview_large.short_description = _("Image Preview")
-
+    @admin.display(description=_("Dimensions"))
     def image_dimensions(self, obj: FaviconModel) -> str:
         """Display image dimensions."""
         if obj.image:
@@ -98,8 +97,6 @@ class FaviconAdmin(admin.ModelAdmin):
             except (AttributeError, FileNotFoundError):
                 return "-"
         return "-"
-
-    image_dimensions.short_description = _("Dimensions")
 
     def save_model(self, request, obj, form, change):
         """Save model and optionally generate favicon variants."""

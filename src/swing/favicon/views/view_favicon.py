@@ -20,7 +20,7 @@ project's static directory with caching headers applied.
 # =============================================================================
 
 from django.conf import settings
-from django.http import FileResponse, HttpRequest, HttpResponse
+from django.http import FileResponse, HttpRequest
 from django.views.decorators.cache import cache_control
 from django.views.decorators.http import require_GET
 
@@ -42,7 +42,7 @@ from ..conf import (
     immutable=FAVICON_CACHE_IMMUTABLE,
     public=FAVICON_CACHE_PUBLIC,
 )
-def favicon(request: HttpRequest) -> HttpResponse:
+def favicon(request: HttpRequest) -> FileResponse:
     """Serve favicon.png from static directory."""
 
     file = (settings.BASE_DIR / "static" / "favicon.png").open("rb")

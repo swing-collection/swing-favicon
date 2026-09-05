@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
 """
 Favicon Utilities
 =================
 
-Utilities for generating and managing favicon files.
+Utilities for generating and managing favicon files, manifests, and images.
 
 Exported Classes:
     FaviconGenerator: Generate all favicon formats from a source image.
@@ -15,6 +21,7 @@ Exported Functions:
     generate_manifest_dict: Generate manifest data as dict.
     get_minimal_manifest_icons: Get minimal PWA icon set.
     generate_icon_types: Iterator over favicon type configurations.
+    generate_og_image: Generate Open Graph image (1200x630 PNG).
     svg_to_png: Convert SVG to PNG file.
     validate_path: Validate and normalize file paths.
     validate_color: Validate color values.
@@ -31,6 +38,10 @@ Example:
 
     # Generate manifest content
     manifest_json = generate_manifest(name="My App")
+
+    # Generate OG image
+    from swing.favicon.utils import generate_og_image
+    png = generate_og_image(title="My Page", subtitle="example.com")
 
     # Validate colors
     from swing.favicon.utils import validate_color
@@ -50,6 +61,7 @@ from .util_generate_manifest import (
     generate_manifest_dict,
     get_minimal_manifest_icons,
 )
+from .util_og_image import generate_og_image
 from .util_svg_to_png import svg_to_png
 from .util_validate_color import (
     is_valid_color,
@@ -67,6 +79,7 @@ __all__ = [
     "generate_icon_types",
     "generate_manifest",
     "generate_manifest_dict",
+    "generate_og_image",
     "get_minimal_manifest_icons",
     "is_valid_color",
     "is_valid_css_color",

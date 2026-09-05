@@ -7,8 +7,8 @@
 
 [project]
 name = "swing_favicon"
-version = "0.0.1"
-description = "Django app for serving favicons"
+version = "0.1.0"
+description = "Django app for serving favicons, manifests, and OG images"
 license = { text = "BSD-3-Clause" }
 readme = "README.md"
 requires-python = ">=3.12,<4.0"
@@ -58,7 +58,16 @@ packages = [{ include = "swing", from = "src" }]
 
 [tool.poetry.dependencies]
 django = ">=5.0,<7.0"
-pillow = ">=10.0,<12.0"
+pillow = { version = ">=10.0,<12.0", optional = true }
+python = ">=3.12,<4.0"
+
+
+# =============================================================================
+# Extras
+# =============================================================================
+
+[tool.poetry.extras]
+og = ["pillow"]  # For OG image generation
 
 
 # =============================================================================

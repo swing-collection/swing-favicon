@@ -23,7 +23,7 @@ Note: Some tests may skip or pass based on whether static files are available.
 from http import HTTPStatus
 import json
 
-from django.test import override_settings, SimpleTestCase
+from django.test import SimpleTestCase
 
 # =============================================================================
 # Variables

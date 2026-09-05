@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
 """
 Debug-Aware Favicon View
 ========================
@@ -9,7 +15,7 @@ Useful for visually distinguishing development from production environments.
 """
 
 from django.conf import settings
-from django.http import FileResponse, HttpRequest, HttpResponse
+from django.http import FileResponse, HttpRequest
 from django.views.decorators.cache import cache_control
 from django.views.decorators.http import require_GET
 
@@ -27,7 +33,7 @@ from ..conf import (
     immutable=FAVICON_CACHE_IMMUTABLE,
     public=FAVICON_CACHE_PUBLIC,
 )
-def favicon(request: HttpRequest) -> HttpResponse:
+def favicon(request: HttpRequest) -> FileResponse:
     """
     Serve favicon based on DEBUG setting.
 

@@ -22,11 +22,10 @@ application. It utilizes caching mechanisms for efficient favicon delivery.
 # Import | Standard Library
 import mimetypes
 from pathlib import Path
-from typing import Optional
 
 from django.conf import settings
 from django.contrib.staticfiles import finders
-from django.http import FileResponse, Http404, HttpRequest, HttpResponse
+from django.http import FileResponse, Http404, HttpRequest
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.cache import cache_control
@@ -77,7 +76,7 @@ class FaviconFileView(View):
         get: Handles GET requests and serves the favicon file.
     """
 
-    filename: Optional[str] = None
+    filename: str | None = None
 
     @method_decorator(require_GET)
     @method_decorator(
@@ -87,7 +86,7 @@ class FaviconFileView(View):
             public=FAVICON_CACHE_PUBLIC,
         )
     )
-    def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
+    def get(self, request: HttpRequest, *args, **kwargs) -> FileResponse:
         """
         Handle GET requests to serve a favicon file.
 
@@ -130,7 +129,7 @@ class FaviconFileView(View):
         except IOError as err:
             raise Http404(f"Unable to read favicon '{name}'.") from err
 
-    def _find_favicon_file(self, name: str) -> Optional[Path]:
+    def _find_favicon_file(self, name: str) -> Path | None:
         """
         Find a favicon file in static directories.
 

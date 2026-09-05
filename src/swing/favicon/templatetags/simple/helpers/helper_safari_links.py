@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
 """Get Safari pinned tab (mask-icon) links."""
 
 from django.templatetags.static import static

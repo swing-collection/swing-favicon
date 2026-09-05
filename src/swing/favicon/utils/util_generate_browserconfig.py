@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
 """
 Generate browserconfig.xml for Windows tiles.
 
@@ -7,7 +13,6 @@ Windows 8/10/11 Start menu tiles and Internet Explorer 11+ pinned sites.
 """
 
 # Import | Standard Library
-from typing import Optional
 from xml.dom.minidom import parseString
 from xml.etree.ElementTree import Element, SubElement, tostring
 
@@ -17,9 +22,9 @@ from ..constants import BROWSERCONFIG_TILES
 
 
 def generate_browserconfig(
-    base_path: Optional[str] = None,
-    tile_color: Optional[str] = None,
-    tiles: Optional[dict] = None,
+    base_path: str | None = None,
+    tile_color: str | None = None,
+    tiles: dict | None = None,
 ) -> str:
     """
     Generate browserconfig.xml content.
@@ -62,8 +67,8 @@ def generate_browserconfig(
 
 
 def generate_browserconfig_dict(
-    base_path: Optional[str] = None,
-    tile_color: Optional[str] = None,
+    base_path: str | None = None,
+    tile_color: str | None = None,
 ) -> dict:
     """
     Generate browserconfig data as a dictionary.

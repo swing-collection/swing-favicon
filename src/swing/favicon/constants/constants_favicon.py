@@ -22,6 +22,31 @@ Supports all modern favicon formats:
 
 """
 
+# =============================================================================
+# Imports
+# =============================================================================
+
+# Import | Future
+from __future__ import annotations
+
+# Import | Standard Library
+from typing import NotRequired, TypedDict
+
+
+# =============================================================================
+# Types
+# =============================================================================
+
+
+class FaviconTypeConfig(TypedDict):
+    """Configuration for a single generated favicon file."""
+
+    format: str
+    rel: str | None
+    dimensions: tuple[int, int]
+    prefix: str
+    purpose: NotRequired[str]
+
 
 # =============================================================================
 # Constants
@@ -47,7 +72,7 @@ ANDROID_CHROME_SIZES = (36, 48, 72, 96, 144, 192, 384, 512)
 # Maskable icon sizes (PWA safe zone icons)
 MASKABLE_ICON_SIZES = (192, 512)
 
-FAVICON_TYPES = (
+FAVICON_TYPES: tuple[FaviconTypeConfig, ...] = (
     # favicon.ico (multi-resolution handled separately)
     # -------------------------------------------------------------------------
     {"format": "ico", "rel": None, "dimensions": (64, 64), "prefix": "favicon"},

@@ -19,7 +19,7 @@ Tests for favicon template tags to ensure proper HTML generation.
 # =============================================================================
 
 from django.template import Context, Template
-from django.test import override_settings, SimpleTestCase
+from django.test import SimpleTestCase
 
 # =============================================================================
 # Variables

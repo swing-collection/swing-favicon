@@ -2,14 +2,13 @@
 
 # Import | Standard Library
 from pathlib import Path
-from typing import Union
 
 # Import | Local
 from ..exceptions import FaviconNotFoundError, FaviconsError
 
 
 def validate_path(
-    path: Union[Path, str], must_exist: bool = True, create: bool = False
+    path: Path | str, must_exist: bool = True, create: bool = False
 ) -> Path:
     """Validate a path and ensure it's a Path object.
 

@@ -3,10 +3,9 @@
 # Import | Standard Library
 from pathlib import Path
 from tempfile import mkstemp
-from typing import Tuple
 
 
-def svg_to_png(svg_path: Path, background_color: Tuple[int, ...]) -> Path:
+def svg_to_png(svg_path: Path, background_color: tuple[int, ...]) -> Path:
     """Convert an SVG vector to a PNG file.
 
     Args:

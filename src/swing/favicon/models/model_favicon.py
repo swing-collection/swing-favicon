@@ -125,7 +125,7 @@ class FaviconModel(models.Model):
             try:
                 file_path.unlink()
             except OSError:
-                pass
+                pass  # pylint: disable=unnecessary-pass
         return len(files)
 
 

@@ -23,7 +23,6 @@ and validate_favicons.
 from io import StringIO
 from pathlib import Path
 import tempfile
-from unittest.mock import patch
 
 from django.core.management import call_command
 from django.core.management.base import CommandError
@@ -87,7 +86,7 @@ class GenerateFaviconsCommandTests(TestCase):
             except Exception:
                 # Command might fail due to Pillow validation
                 # but dry-run should prevent actual file creation
-                pass
+                pass  # pylint: disable=unnecessary-pass
 
             # Clean up temp file
             tmp_path.unlink(missing_ok=True)
@@ -121,4 +120,4 @@ class ValidateFaviconsCommandTests(TestCase):
             call_command("validate_favicons", stdout=out)
         except CommandError:
             # May fail due to missing favicons, but command should exist
-            pass
+            pass  # pylint: disable=unnecessary-pass

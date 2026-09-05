@@ -28,13 +28,12 @@ from __future__ import annotations
 
 # Import | Standard Library
 from pkgutil import extend_path
-from typing import MutableSequence
 
 # =============================================================================
 # Variables
 # =============================================================================
 
-__path__: MutableSequence[str] = extend_path(
-    path=__path__,  # type: ignore
+__path__ = extend_path(
+    path=__path__,
     name=__name__,
 )

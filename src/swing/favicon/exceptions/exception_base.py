@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+# =============================================================================
+# Docstring
+# =============================================================================
+
 """
 Base Exception Class
 ====================
@@ -11,7 +17,7 @@ to dict or JSON format.
 
 # Import | Standard Library
 import json as _json
-from typing import Any, Dict
+from typing import Any
 
 
 class FaviconsError(Exception):
@@ -55,7 +61,7 @@ class FaviconsError(Exception):
         return self._message.format(*self._args, **self._kwargs)
 
     @property
-    def kwargs(self) -> Dict:
+    def kwargs(self) -> dict:
         """
         Get keyword arguments as a dictionary.
 
@@ -88,7 +94,7 @@ class FaviconsError(Exception):
         """
         return self.message
 
-    def dict(self) -> Dict:
+    def dict(self) -> dict:
         """
         Serialize exception to a dictionary.
 
